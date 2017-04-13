@@ -9,27 +9,21 @@
   <title>5 Tips for More Efficient jQuery Selectors | dsky的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. Use an ID if PossibleHTML ID attributes are unique in every page and even older browsers can locate a single element very quickly:
-$(&amp;quot;#myelement&amp;quot;);
-`&amp;lt;/pre&amp;gt;
-
-## 2\. Avoid Selecting b">
+1$(&quot;#myelement&quot;);
+2. Avoid Selecting by Class Only  The following">
 <meta property="og:type" content="article">
 <meta property="og:title" content="5 Tips for More Efficient jQuery Selectors">
 <meta property="og:url" content="http://yoursite.com/2014/12/26/5-tips-for-more-efficient-jquery-selectors/index.html">
 <meta property="og:site_name" content="dsky的博客">
 <meta property="og:description" content="1. Use an ID if PossibleHTML ID attributes are unique in every page and even older browsers can locate a single element very quickly:
-$(&amp;quot;#myelement&amp;quot;);
-`&amp;lt;/pre&amp;gt;
-
-## 2\. Avoid Selecting b">
-<meta property="og:updated_time" content="1979-11-29T16:00:00.000Z">
+1$(&quot;#myelement&quot;);
+2. Avoid Selecting by Class Only  The following">
+<meta property="og:updated_time" content="2017-04-13T03:23:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="5 Tips for More Efficient jQuery Selectors">
 <meta name="twitter:description" content="1. Use an ID if PossibleHTML ID attributes are unique in every page and even older browsers can locate a single element very quickly:
-$(&amp;quot;#myelement&amp;quot;);
-`&amp;lt;/pre&amp;gt;
-
-## 2\. Avoid Selecting b">
+1$(&quot;#myelement&quot;);
+2. Avoid Selecting by Class Only  The following">
   
     <link rel="alternative" href="‘’" title="dsky的博客" type="application/atom+xml">
   
@@ -172,94 +166,32 @@ $(&amp;quot;#myelement&amp;quot;);
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-Use-an-ID-if-Possible"><a href="#1-Use-an-ID-if-Possible" class="headerlink" title="1. Use an ID if Possible"></a>1. Use an ID if Possible</h2><p>HTML ID attributes are unique in every page and even older browsers can locate a single element very quickly:</p>
-<pre><code>$(&quot;#myelement&quot;);
-`&lt;/pre&gt;
-
-## 2\. Avoid Selecting by Class Only ##
-
-The following class selector will run quickly in modern browsers:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;.myclass&quot;);
-`&lt;/pre&gt;
-
-Unfortunately, in older browser such as IE6/7 and Firefox 2, jQuery must examine every element on the page to determine whether “myclass” has been applied.
-
-The selector will be more efficient if we qualify it with a tag name, e.g.
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;div.myclass&quot;);
-`&lt;/pre&gt;
-
-jQuery can now restrict the search to DIV elements only.
-
-&lt;!--more--&gt;
-
-## 3\. Keep it Simple! ##
-
-Avoid overly complex selectors. Unless you have an incredibly complex HTML document, it’s rare you’ll need any more than two or three qualifiers.
-
-Consider the following complex selector:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;body #page:first-child article.main p#intro em&quot;);
-`&lt;/pre&gt;
-
-p#intro must be unique so the selector can be simplified:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;p#intro em&quot;);
-`&lt;/pre&gt;
-
-## 4\. Increase Specificity from Left to Right ##
-
-A little knowledge of jQuery’s selector engine is useful. It works from the last selector first so, in older browsers, a query such as:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;p#intro em&quot;);
-`&lt;/pre&gt;
-
-loads every em element into an array. It then works up the parents of each node and rejects those where p#intro cannot be found. The query will be particularly inefficient if you have hundreds of `em` tags on the page.
-
-Depending on your document, the query can be optimized by retrieving the best-qualified selector first. It can then be used as a starting point for child selectors, e.g.
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;em&quot;, $(&quot;p#intro&quot;)); // or
-$(&quot;p#intro&quot;).find(&quot;em&quot;);
-`&lt;/pre&gt;
-
-## 5\. Avoid Selector Repetition ##
-
-It’s rarely necessary to use the same selector twice. The following code selects every `p` tag three times:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;p&quot;).css(&quot;color&quot;, &quot;blue&quot;);
-$(&quot;p&quot;).css(&quot;font-size&quot;, &quot;1.2em&quot;);
-$(&quot;p&quot;).text(&quot;Text changed!&quot;);
-`&lt;/pre&gt;
-
-Remember jQuery offers chaining; multiple methods can be applied to the same collection. Therefore, the same code can be re-written so it applies to a single selector:
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-$(&quot;p&quot;).css({ &quot;color&quot;: &quot;blue&quot;, &quot;font-size&quot;: &quot;1.2em&quot;}).text(&quot;Text changed!&quot;);
-`&lt;/pre&gt;
-
-You should cache the jQuery object in a variable if you need to use the same set of elements multiple times, e.g.
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-var $p = $(&quot;p&quot;);
-$p.css(&quot;color&quot;, &quot;blue&quot;);
-$p.text(&quot;Text changed!&quot;);
-`&lt;/pre&gt;
-
-Unlike standard DOM collections, [jQuery collections aren’t live](http://www.sitepoint.com/javascript-vs-jquery-html-collections/) and the object is not updated when paragraph tags are added or removed from the document. You can code around this restriction by creating a DOM collection and passing it to the jQuery function when it’s required, e.g.
-
-&lt;pre style=&quot;color: #262626;&quot;&gt;`
-var p = document.getElementByTagName(&quot;p&quot;);
-$(p).css(&quot;color&quot;, &quot;blue&quot;);
-// update the DOM
-$(p).text(&quot;Text changed!&quot;);
-</code></pre><p>原文地址<a href="http://www.sitepoint.com/efficient-jquery-selectors/" title="5 Tips for More Efficient jQuery Selectors" target="_blank" rel="external">5 Tips for More Efficient jQuery Selectors</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#myelement"</span>);</div></pre></td></tr></table></figure>
+<h2 id="2-Avoid-Selecting-by-Class-Only"><a href="#2-Avoid-Selecting-by-Class-Only" class="headerlink" title="2. Avoid Selecting by Class Only"></a>2. Avoid Selecting by Class Only</h2><p>  The following class selector will run quickly in modern browsers:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".myclass"</span>);</div></pre></td></tr></table></figure></p>
+<p>  Unfortunately, in older browser such as IE6/7 and Firefox 2, jQuery must examine every element on the page to determine whether “myclass” has been applied.</p>
+<p>  The selector will be more efficient if we qualify it with a tag name, e.g.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div.myclass"</span>);</div></pre></td></tr></table></figure>
+<p>  jQuery can now restrict the search to DIV elements only.</p>
+  <a id="more"></a>
+<h2 id="3-Keep-it-Simple"><a href="#3-Keep-it-Simple" class="headerlink" title="3. Keep it Simple!"></a>3. Keep it Simple!</h2><p>  Avoid overly complex selectors. Unless you have an incredibly complex HTML document, it’s rare you’ll need any more than two or three qualifiers.</p>
+<p>  Consider the following complex selector:</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"body #page:first-child article.main p#intro em"</span>);</div></pre></td></tr></table></figure>
+<p>  p#intro must be unique so the selector can be simplified:</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p#intro em"</span>);</div></pre></td></tr></table></figure>
+<h2 id="4-Increase-Specificity-from-Left-to-Right"><a href="#4-Increase-Specificity-from-Left-to-Right" class="headerlink" title="4. Increase Specificity from Left to Right"></a>4. Increase Specificity from Left to Right</h2><p>  A little knowledge of jQuery’s selector engine is useful. It works from the last selector first so, in older browsers, a query such as:</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p#intro em"</span>);</div></pre></td></tr></table></figure>
+<p>  loads every em element into an array. It then works up the parents of each node and rejects those where p#intro cannot be found. The query will be particularly inefficient if you have hundreds of <code>em</code> tags on the page.</p>
+<p>  Depending on your document, the query can be optimized by retrieving the best-qualified selector first. It can then be used as a starting point for child selectors, e.g.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"em"</span>, $(<span class="string">"p#intro"</span>)); <span class="comment">// or</span></div><div class="line">$(<span class="string">"p#intro"</span>).find(<span class="string">"em"</span>);</div></pre></td></tr></table></figure>
+<h2 id="5-Avoid-Selector-Repetition"><a href="#5-Avoid-Selector-Repetition" class="headerlink" title="5. Avoid Selector Repetition"></a>5. Avoid Selector Repetition</h2><p>  It’s rarely necessary to use the same selector twice. The following code selects every <code>p</code> tag three times:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p"</span>).css(<span class="string">"color"</span>, <span class="string">"blue"</span>);</div><div class="line">$(<span class="string">"p"</span>).css(<span class="string">"font-size"</span>, <span class="string">"1.2em"</span>);</div><div class="line">$(<span class="string">"p"</span>).text(<span class="string">"Text changed!"</span>);</div></pre></td></tr></table></figure>
+<p>  Remember jQuery offers chaining; multiple methods can be applied to the same collection. Therefore, the same code can be re-written so it applies to a single selector:</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p"</span>).css(&#123; <span class="string">"color"</span>: <span class="string">"blue"</span>, <span class="string">"font-size"</span>: <span class="string">"1.2em"</span>&#125;).text(<span class="string">"Text changed!"</span>);</div></pre></td></tr></table></figure>
+<p>  You should cache the jQuery object in a variable if you need to use the same set of elements multiple times, e.g.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $p = $(<span class="string">"p"</span>);</div><div class="line">$p.css(<span class="string">"color"</span>, <span class="string">"blue"</span>);</div><div class="line">$p.text(<span class="string">"Text changed!"</span>);</div></pre></td></tr></table></figure>
+<p>  Unlike standard DOM collections, <a href="http://www.sitepoint.com/javascript-vs-jquery-html-collections/" target="_blank" rel="external">jQuery collections aren’t live</a> and the object is not updated when paragraph tags are added or removed from the document. You can code around this restriction by creating a DOM collection and passing it to the jQuery function when it’s required, e.g.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementByTagName(<span class="string">"p"</span>);</div><div class="line">$(p).css(<span class="string">"color"</span>, <span class="string">"blue"</span>);</div><div class="line"><span class="comment">// update the DOM</span></div><div class="line">$(p).text(<span class="string">"Text changed!"</span>);</div></pre></td></tr></table></figure>
+<p>原文地址<a href="http://www.sitepoint.com/efficient-jquery-selectors/" title="5 Tips for More Efficient jQuery Selectors" target="_blank" rel="external">5 Tips for More Efficient jQuery Selectors</a></p>
 
       
 
@@ -548,11 +480,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,11 +500,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
             
             <div class="clearfix"></div>
