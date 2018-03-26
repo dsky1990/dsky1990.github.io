@@ -30,7 +30,7 @@ ngnix
 GitLab 安装
 安装依赖包，运行命令
 12sudo apt-get updatesudo apt-get install -y curl openssh-server ca-c">
-<meta property="og:updated_time" content="2018-03-26T12:57:01.000Z">
+<meta property="og:updated_time" content="2018-03-26T13:10:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitLab 服务器搭建">
 <meta name="twitter:description" content="环境安装系统Ubuntu Server 16.04.1 LTS 64位
@@ -217,15 +217,21 @@ GitLab 安装
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo passwd root</div><div class="line">su root</div></pre></td></tr></table></figure>
 <p>再安装 <code>gitlab-ce</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install gitlab-ce</div></pre></td></tr></table></figure>
-<h2 id="配置GitLab-IP地址"><a href="#配置GitLab-IP地址" class="headerlink" title="配置GitLab IP地址"></a>配置GitLab IP地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/gitlab/gitlab.rb</div><div class="line">```  </div><div class="line"></div><div class="line">然后修改`external_url`为`http://ip:port`</div><div class="line"></div><div class="line">## 初始化配置</div></pre></td></tr></table></figure>
-<p>sudo gitlab-ctl reconfigure<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里大概要耗时5-6分钟</div><div class="line"></div><div class="line">## 打开 sshd 和 postfix 服务</div></pre></td></tr></table></figure></p>
-<p>service sshd start<br>service postfix start<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">为了GitLab 社区版的 Web 界面可以通过网络进行访问，我们需要允许 `80` 端口通过防火墙，这个端口是 GitLab 社区版的默认端口。为此需要运行下面的命令</div></pre></td></tr></table></figure></p>
-<p>sudo iptables -A INPUT -p tcp -m tcp –dport 80 -j ACCEPT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 检查GitLab是否安装好并且已经正确运行，输入下面的命令</div></pre></td></tr></table></figure></p>
-<p>sudo gitlab-ctl status<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果得到类似下面的结果，则说明GitLab运行正常</div></pre></td></tr></table></figure></p>
-<p>run: gitlab-workhorse: (pid 1148) 884s; run: log: (pid 1132) 884s<br>run: logrotate: (pid 1150) 884s; run: log: (pid 1131) 884s<br>run: nginx: (pid 1144) 884s; run: log: (pid 1129) 884s<br>run: postgresql: (pid 1147) 884s; run: log: (pid 1130) 884s<br>run: redis: (pid 1146) 884s; run: log: (pid 1133) 884s<br>run: sidekiq: (pid 1145) 884s; run: log: (pid 1128) 884s<br>run: unicorn: (pid 1149) 885s; run: log: (pid 1134) 885s<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">到这里我们的配置基本完成了，然后我们可以访问我们之前配置对地址，设置完成密码后进行登陆，`默认username为root`</div><div class="line"></div><div class="line">## 配置 swap 交换分区</div><div class="line"></div><div class="line">由于 GitLab 较为消耗资源，我们需要先创建交换分区，以降低物理内存的压力，新建 2 GB 大小的交换分区：</div></pre></td></tr></table></figure></p>
-<p>dd if=/dev/zero of=/root/swapfile bs=1M count=2048<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">格式化为交换分区文件并启用:</div></pre></td></tr></table></figure></p>
-<p>mkswap /root/swapfile<br>swapon /root/swapfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">添加自启用。打开 /etc/fstab 文件</div></pre></td></tr></table></figure></p>
-<p>/root/swapfile swap swap defaults 0 0<br>```</p>
+<h2 id="配置GitLab-IP地址"><a href="#配置GitLab-IP地址" class="headerlink" title="配置GitLab IP地址"></a>配置GitLab IP地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/gitlab/gitlab.rb</div></pre></td></tr></table></figure>
+<p>然后修改<code>external_url</code>为<code>http://ip:port</code></p>
+<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-ctl reconfigure</div></pre></td></tr></table></figure>
+<p>这里大概要耗时5-6分钟</p>
+<h2 id="打开-sshd-和-postfix-服务"><a href="#打开-sshd-和-postfix-服务" class="headerlink" title="打开 sshd 和 postfix 服务"></a>打开 sshd 和 postfix 服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service sshd start </div><div class="line">service postfix start</div></pre></td></tr></table></figure>
+<p>为了GitLab 社区版的 Web 界面可以通过网络进行访问，我们需要允许 <code>80</code> 端口通过防火墙，这个端口是 GitLab 社区版的默认端口。为此需要运行下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT</div></pre></td></tr></table></figure>
+<h2 id="检查GitLab是否安装好并且已经正确运行，输入下面的命令"><a href="#检查GitLab是否安装好并且已经正确运行，输入下面的命令" class="headerlink" title="检查GitLab是否安装好并且已经正确运行，输入下面的命令"></a>检查GitLab是否安装好并且已经正确运行，输入下面的命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo gitlab-ctl status</div></pre></td></tr></table></figure>
+<p>如果得到类似下面的结果，则说明GitLab运行正常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">run: gitlab-workhorse: (pid 1148) 884s; run: log: (pid 1132) 884s</div><div class="line">run: logrotate: (pid 1150) 884s; run: log: (pid 1131) 884s</div><div class="line">run: nginx: (pid 1144) 884s; run: log: (pid 1129) 884s</div><div class="line">run: postgresql: (pid 1147) 884s; run: log: (pid 1130) 884s</div><div class="line">run: redis: (pid 1146) 884s; run: log: (pid 1133) 884s</div><div class="line">run: sidekiq: (pid 1145) 884s; run: log: (pid 1128) 884s</div><div class="line">run: unicorn: (pid 1149) 885s; run: log: (pid 1134) 885s</div></pre></td></tr></table></figure>
+<p>到这里我们的配置基本完成了，然后我们可以访问我们之前配置对地址，设置完成密码后进行登陆，<code>默认username为root</code></p>
+<h2 id="配置-swap-交换分区"><a href="#配置-swap-交换分区" class="headerlink" title="配置 swap 交换分区"></a>配置 swap 交换分区</h2><p>由于 GitLab 较为消耗资源，我们需要先创建交换分区，以降低物理内存的压力，新建 2 GB 大小的交换分区：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd if=/dev/zero of=/root/swapfile bs=1M count=2048</div></pre></td></tr></table></figure>
+<p>格式化为交换分区文件并启用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkswap /root/swapfile</div><div class="line">swapon /root/swapfile</div></pre></td></tr></table></figure></p>
+<p>添加自启用。打开 /etc/fstab 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/root/swapfile swap swap defaults 0 0</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>参考资料<a href="https://www.zybuluo.com/lovemiffy/note/418758，" target="_blank" rel="external">https://www.zybuluo.com/lovemiffy/note/418758，</a><br><a href="https://cloud.tencent.com/developer/labs/lab/10288" target="_blank" rel="external">https://cloud.tencent.com/developer/labs/lab/10288</a></p>
 </blockquote>
@@ -420,6 +426,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -429,10 +439,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,11 +466,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,15 +506,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">project</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jqueryvalidation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">validate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +538,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>
