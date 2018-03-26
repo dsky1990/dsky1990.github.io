@@ -137,6 +137,116 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-gitLab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/26/gitLab/">GitLab 服务器搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/26/gitLab/" class="archive-article-date">
+  	<time datetime="2018-03-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="GitLab-服务器搭建"><a href="#GitLab-服务器搭建" class="headerlink" title="GitLab 服务器搭建"></a>GitLab 服务器搭建</h1><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="系统"><a href="#系统" class="headerlink" title="系统"></a>系统</h3><p><code>Ubuntu Server 16.04.1 LTS 64位</code></p>
+<h3 id="必要依赖"><a href="#必要依赖" class="headerlink" title="必要依赖"></a>必要依赖</h3><ul>
+<li><code>ruby</code></li>
+<li><code>ngnix</code></li>
+</ul>
+<p>安装方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install ruby nginx</div></pre></td></tr></table></figure></p>
+<h2 id="GitLab-安装"><a href="#GitLab-安装" class="headerlink" title="GitLab 安装"></a>GitLab 安装</h2><ul>
+<li><p>安装依赖包，运行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install -y curl openssh-server ca-certificates</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装postfix</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y postfix</div></pre></td></tr></table></figure>
+<p>这个过程中我们会选择<code>Postfix</code>相关配置，这里我们选择<code>Internet Site</code>，然后<code>tab</code>键切换到<code>ok</code>，<code>enter</code>选择</p>
+<ul>
+<li>添加GitLab安装包的源，并安装package</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 gitlab-ce</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install gitlab-ce</div></pre></td></tr></table></figure>
+<p>然后在这里我们会碰到一个问题，安装完之后，会提示我们<code>Unable to locate package gitlab-ce</code>,或者会耗时很久，解决办法如下:</p>
+<p>利用清华大学的<a href="https://mirror.tuna.tsinghua.edu.cn/help/gitlab-ce/" target="_blank" rel="external">镜像</a>来进行主程序的安装，但是有一点需要注意,<code>gitlab-ce 镜像仅支持 x86-64 架构</code></p>
+<p>1、 首先信任 GitLab 的 GPG 公钥:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://packages.gitlab.com/gpg.key 2&gt; /dev/null | sudo apt-key add - &amp;&gt;/dev/null</div></pre></td></tr></table></figure>
+<p>2、 利用root用户（不是sudo，而是root），vi打开文件<code>/etc/apt/sources.list.d/gitlab-ce.list</code>，加入下面一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 这里是Ubuntu Server 16.04.1 LTS 64 的，对应系统，在网页在自己选择查看</div><div class="line"></div><div class="line">deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu xenial main</div></pre></td></tr></table></figure>
+<p>创建root用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo passwd root</div><div class="line">su root</div></pre></td></tr></table></figure>
+<p>再安装 <code>gitlab-ce</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install gitlab-ce</div></pre></td></tr></table></figure>
+<h2 id="配置GitLab-IP地址"><a href="#配置GitLab-IP地址" class="headerlink" title="配置GitLab IP地址"></a>配置GitLab IP地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/gitlab/gitlab.rb</div><div class="line">```  </div><div class="line"></div><div class="line">然后修改`external_url`为`http://ip:port`</div><div class="line"></div><div class="line">## 初始化配置</div></pre></td></tr></table></figure>
+<p>sudo gitlab-ctl reconfigure<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里大概要耗时5-6分钟</div><div class="line"></div><div class="line">## 打开 sshd 和 postfix 服务</div></pre></td></tr></table></figure></p>
+<p>service sshd start<br>service postfix start<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">为了GitLab 社区版的 Web 界面可以通过网络进行访问，我们需要允许 `80` 端口通过防火墙，这个端口是 GitLab 社区版的默认端口。为此需要运行下面的命令</div></pre></td></tr></table></figure></p>
+<p>sudo iptables -A INPUT -p tcp -m tcp –dport 80 -j ACCEPT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 检查GitLab是否安装好并且已经正确运行，输入下面的命令</div></pre></td></tr></table></figure></p>
+<p>sudo gitlab-ctl status<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果得到类似下面的结果，则说明GitLab运行正常</div></pre></td></tr></table></figure></p>
+<p>run: gitlab-workhorse: (pid 1148) 884s; run: log: (pid 1132) 884s<br>run: logrotate: (pid 1150) 884s; run: log: (pid 1131) 884s<br>run: nginx: (pid 1144) 884s; run: log: (pid 1129) 884s<br>run: postgresql: (pid 1147) 884s; run: log: (pid 1130) 884s<br>run: redis: (pid 1146) 884s; run: log: (pid 1133) 884s<br>run: sidekiq: (pid 1145) 884s; run: log: (pid 1128) 884s<br>run: unicorn: (pid 1149) 885s; run: log: (pid 1134) 885s<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">到这里我们的配置基本完成了，然后我们可以访问我们之前配置对地址，设置完成密码后进行登陆，`默认username为root`</div><div class="line"></div><div class="line">## 配置 swap 交换分区</div><div class="line"></div><div class="line">由于 GitLab 较为消耗资源，我们需要先创建交换分区，以降低物理内存的压力，新建 2 GB 大小的交换分区：</div></pre></td></tr></table></figure></p>
+<p>dd if=/dev/zero of=/root/swapfile bs=1M count=2048<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">格式化为交换分区文件并启用:</div></pre></td></tr></table></figure></p>
+<p>mkswap /root/swapfile<br>swapon /root/swapfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">添加自启用。打开 /etc/fstab 文件</div></pre></td></tr></table></figure></p>
+<p>/root/swapfile swap swap defaults 0 0<br>```</p>
+<blockquote>
+<p>参考资料<a href="https://www.zybuluo.com/lovemiffy/note/418758，" target="_blank" rel="external">https://www.zybuluo.com/lovemiffy/note/418758，</a><br><a href="https://cloud.tencent.com/developer/labs/lab/10288" target="_blank" rel="external">https://cloud.tencent.com/developer/labs/lab/10288</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gitLab</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/26/gitLab/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-https" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -496,88 +606,6 @@
 
 
   
-    <article id="post-es6-async" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/22/es6-async/">ES6学习笔记之异步操作和Async函数</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/22/es6-async/" class="archive-article-date">
-  	<time datetime="2016-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="异步操作和Async函数"><a href="#异步操作和Async函数" class="headerlink" title="异步操作和Async函数"></a>异步操作和Async函数</h1><p>异步编程对JavaScript语言太重要。Javascript语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。</p>
-<p>ES6诞生以前，异步编程的方法，大概有下面四种。</p>
-<ul>
-<li>回调函数</li>
-<li>事件监听</li>
-<li>发布/订阅</li>
-<li>Promise 对象</li>
-</ul>
-<p>ES6将JavaScript异步编程带入了一个全新的阶段，ES7的Async函数更是提出了异步编程的终极解决方案。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>所谓”异步”，简单说就是一个任务分成两段，先执行第一段，然后转而执行其他任务，等做好了准备，再回过头执行第二段。</p>
-<p>比如，有一个任务是读取文件进行处理，任务的第一段是向操作系统发出请求，要求读取文件。然后，程序执行其他任务，等到操作系统返回文件，再接着执行任务的第二段（处理文件）。这种不连续的执行，就叫做异步。</p>
-<p>相应地，连续的执行就叫做同步。由于是连续执行，不能插入其他任务，所以操作系统从硬盘读取文件的这段时间，程序只能干等着。</p>
-<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>JavaScript语言对异步编程的实现，就是回调函数。所谓回调函数，就是把任务的第二段单独写在一个函数里面，等到重新执行这个任务的时候，就直接调用这个函数。它的英语名字callback，直译过来就是”重新调用”。</p>
-<p>读取文件进行处理，是这样写的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fs.readFile(<span class="string">'/etc/passwd'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line">  <span class="built_in">console</span>.log(data);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/05/22/es6-async/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/22/es6-async/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -592,7 +620,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 dsky
+    		&copy; 2018 dsky
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -712,15 +740,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,11 +788,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,6 +820,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">closure</a>
               </li>
              
@@ -808,11 +840,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -828,11 +860,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

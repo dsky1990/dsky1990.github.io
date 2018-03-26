@@ -137,6 +137,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css-selector-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/29/css-selector-3/">css学习之css选择器（3）</a>
+    </h1>
+  
+
+        
+        <a href="/2014/07/29/css-selector-3/" class="archive-article-date">
+  	<time datetime="2014-07-28T16:33:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、CSS-first-child-Selector"><a href="#1、CSS-first-child-Selector" class="headerlink" title="1、CSS :first-child Selector"></a><span style="color: #ff0000;">1、CSS :first-child Selector</span></h2><p>版本：css2</p>
+<p>用法：用于选择父级的第一个子元素</p>
+<p>支持版本：</p>
+<p>pc：ie7+、all chrome versions、all firefox versions、all safair versions、all opera versions</p>
+<p>mobile：all ios safair versions、all opera mini versions、all Android Browser versions</p>
+<p>eg：</p>
+<pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;dsky&lt;/title&gt;
+&lt;style id="jsbin-css"&gt;
+p:first-child{background:#666;}
+div p:first-child{background:#ddd;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;body的第一个p&lt;/p&gt;
+&lt;p&gt;body的第二个p&lt;/p&gt;
+&lt;div&gt;
+  &lt;p&gt;div的第一个p&lt;/p&gt;
+  &lt;p&gt;div的第二个p&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p> 预览地址：<a href="http://jsbin.com/malik/1" title="dsky-CSS :first-child Selector">http://jsbin.com/malik/1</a></p>
+        
+          <a class="article-more-a" href="/2014/07/29/css-selector-3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/07/29/css-selector-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-css-selector-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -575,75 +669,6 @@ $(function () {
 
 
   
-    <article id="post-css-overflow-with-ellipsis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/25/css-overflow-with-ellipsis/">css处理文字溢出显示为省略号，兼容ie,ff,chrome</a>
-    </h1>
-  
-
-        
-        <a href="/2014/06/25/css-overflow-with-ellipsis/" class="archive-article-date">
-  	<time datetime="2014-06-25T14:03:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><pre class="lang:default decode:true " title="css解决文字溢出">.limit1{ display:block;}<br>.limit1,.limit2,.limit3{<br>  max-width:100px;<br>  white-space:nowrap;<br>    text-overflow:ellipsis;<br>    -o-text-overflow:ellipsis;<br>    overflow:hidden;}</pre></p>
-<p>&lt;span class=”limit1”&gt;文字溢出文字溢出文字溢出文字溢出&lt;/span&gt;<br>&lt;p class=”limit2”&gt;文字溢出文字溢出文字溢出文字溢出&lt;/p&gt;<br>&lt;span class=”limit3”&gt;文字溢出文字溢出文字溢出文字溢出&lt;/span&gt;<br><span style="color: #ff0000;">注意：标签必须为block属性才行，不然不会隐藏，原因是width属性对行内元素span失效，至于失效原因，下次再另开一帖说明</span></p>
-<p><span style="color: #ff0000;">*ff必须在28+</span></p>
-<p>预览地址：<span style="text-decoration: underline;"><span style="color: #0000ff;"><a href="http://jsbin.com/seyaf/1/" target="_blank" rel="external"><span style="color: #0000ff; text-decoration: underline;">http://jsbin.com/seyaf/1/</span></a></span></span></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/06/25/css-overflow-with-ellipsis/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -658,7 +683,7 @@ $(function () {
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 dsky
+    		&copy; 2018 dsky
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -778,15 +803,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,11 +851,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,6 +883,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">closure</a>
               </li>
              
@@ -874,11 +903,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,11 +923,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

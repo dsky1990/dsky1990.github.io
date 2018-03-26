@@ -137,6 +137,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jQuery-Performance-Rules(continue)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/26/jQuery-Performance-Rules(continue)/">jQuery Performance Rules（续）</a>
+    </h1>
+  
+
+        
+        <a href="/2014/12/26/jQuery-Performance-Rules(continue)/" class="archive-article-date">
+  	<time datetime="2014-12-26T04:26:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前发了一篇关于jquery选择器的有效选择建议的文章，看到评论这五个方法不一定是最好的，后来又找到一个相关的选择器时间测试，地址如下（本链接是第39版，囧….）</p>
+<h1 id="Sizzle-class-vs-tag-qualfied-class-selector"><a href="#Sizzle-class-vs-tag-qualfied-class-selector" class="headerlink" title="Sizzle class vs tag qualfied class selector"></a><a href="http://jsperf.com/jquery-class-vs-tag-qualfied-class-selector/39" title="Sizzle class vs tag qualfied class selector" target="_blank" rel="external">Sizzle class vs tag qualfied class selector</a></h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/12/26/jQuery-Performance-Rules(continue)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-jquery-performance-rules" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -521,73 +587,6 @@ html,body{margin:0; padding: 0;}
 
 
   
-    <article id="post-Nodejs-construct-WebServer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/08/Nodejs-construct-WebServer/">nodejs搭建静态文件的Web服务器</a>
-    </h1>
-  
-
-        
-        <a href="/2014/10/08/Nodejs-construct-WebServer/" class="archive-article-date">
-  	<time datetime="2014-10-08T14:13:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-10-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>参考网址：<span style="color: #666666;"><a href="https://gist.github.com/rpflorence/701407" title="Node.JS static file web server" target="_blank" rel="external">Node.JS static file web server</a>，代码在下面，默认打开的是index.html文件</span><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>),</div><div class="line">    url = <span class="built_in">require</span>(<span class="string">"url"</span>),</div><div class="line">    path = <span class="built_in">require</span>(<span class="string">"path"</span>),</div><div class="line">    fs = <span class="built_in">require</span>(<span class="string">"fs"</span>)</div><div class="line">    port = process.argv[<span class="number">2</span>] || <span class="number">8888</span>;</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> uri = url.parse(request.url).pathname</div><div class="line">    , filename = path.join(process.cwd(), uri);</div><div class="line"></div><div class="line">  path.exists(filename, <span class="function"><span class="keyword">function</span>(<span class="params">exists</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(!exists) &#123;</div><div class="line">      response.writeHead(<span class="number">404</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</div><div class="line">      response.write(<span class="string">"404 Not Found\n"</span>);</div><div class="line">      response.end();</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (fs.statSync(filename).isDirectory()) filename += <span class="string">'/index.html'</span>;</div><div class="line"></div><div class="line">    fs.readFile(filename, <span class="string">"binary"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, file</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(err) &#123;        </div><div class="line">        response.writeHead(<span class="number">500</span>, &#123;<span class="string">"Content-Type"</span>: <span class="string">"text/plain"</span>&#125;);</div><div class="line">        response.write(err + <span class="string">"\n"</span>);</div><div class="line">        response.end();</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      response.writeHead(<span class="number">200</span>);</div><div class="line">      response.write(file, <span class="string">"binary"</span>);</div><div class="line">      response.end();</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;).listen(<span class="built_in">parseInt</span>(port, <span class="number">10</span>));</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Static file server running at\n  =&amp;gt; http://localhost:"</span> + port + <span class="string">"/\nCTRL + C to shutdown"</span>);</div></pre></td></tr></table></figure></p>
-<p>&nbsp;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/10/08/Nodejs-construct-WebServer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
@@ -602,7 +601,7 @@ html,body{margin:0; padding: 0;}
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 dsky
+    		&copy; 2018 dsky
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -722,15 +721,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,11 +769,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">transitions</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,6 +801,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">closure</a>
               </li>
              
@@ -818,11 +821,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -838,11 +841,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>
