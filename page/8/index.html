@@ -137,6 +137,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angularJS-learning-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/13/angularJS-learning-2/">Angularjs学习(2)之模块和作用域</a>
+    </h1>
+  
+
+        
+        <a href="/2015/07/13/angularJS-learning-2/" class="archive-article-date">
+  	<time datetime="2015-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>在angularJS中，模块是定义应用的最主要方式。模块包含了主要的应用代码。一个应用可以包含多个模块，每一个模块都包含了定义具体功能的代码。使用模块能带给我们许多好处，例如：</p>
+<ul>
+<li>保持全局命名空间的清洁</li>
+<li>编写测试代码更容易，并能保持其清洁，以便更容易找到互相隔离的功能</li>
+<li>易于在不同的应用间复用代码</li>
+<li>使应用能够以任意顺序加载代码的各个部分</li>
+</ul>
+<p>angularJS允许我们使用angular.module()方法来声明模块，这个方法能接受两个参数，第一个是模块名称，第二个是依赖列表，也就是可以被注入到模块中的对象列表。使用方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/07/13/angularJS-learning-2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/07/13/angularJS-learning-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-angularJS-learning-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -555,93 +630,6 @@
 
 
   
-    <article id="post-css3-of-animation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/26/css3-of-animation/">css3学习之animation</a>
-    </h1>
-  
-
-        
-        <a href="/2015/05/26/css3-of-animation/" class="archive-article-date">
-  	<time datetime="2015-05-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>animation</code>运用的是一个<code>Keyframes</code>(关键帧)的概念来制作动画，这个概念和flash里面的关键帧一样，每一关键帧一个状态，然后很多关键帧拼成了一个动画。关键帧使用<code>percentage</code>来指定动画发生的时间点。<code>0%</code>表示动画的第一时刻，<code>100%</code>表示动画的最终时刻。因为这两个时间点十分重要，所以还有特殊的别名：<code>from</code>和<code>to</code>。这两个都是可选的，若<code>from/0%</code>或<code>to/100%</code>未指定，则浏览器使用计算值开始或结束动画。也可包含额外可选的关键帧，描述动画开始和结束之间的状态。</p>
-<p>语法规则如下：</p>
-<blockquote>
-<p>animation-name</p>
-<blockquote>
-<p>必须，定义了animation的动画名称</p>
-</blockquote>
-<p>keyframes-selector</p>
-<blockquote>
-<p>必须，定义阶段，0%或者from为开始，100%或者to为结束</p>
-</blockquote>
-<p>css-styles</p>
-<blockquote>
-<p>必须，每一关键帧的css样式</p>
-</blockquote>
-</blockquote>
-        
-          <a class="article-more-a" href="/2015/05/26/css3-of-animation/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/05/26/css3-of-animation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -784,10 +772,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -797,6 +781,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,11 +864,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,10 +893,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">

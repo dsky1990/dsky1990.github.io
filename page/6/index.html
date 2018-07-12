@@ -137,6 +137,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-browsersync" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/13/browsersync/">移动端真机调试终极利器-BrowserSync</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/13/browsersync/" class="archive-article-date">
+  	<time datetime="2016-01-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在移动开发中，我们经常会碰到不同设备，不同游览器，不同平台的调试问题，这个在开发过程中常常是挡在我们面前的“大难题”，现在介绍<a href="https://www.browsersync.io/">browsersync</a> 这个工具并<a href="https://www.browsersync.io/docs/gulp/">结合</a>常用的<a href="http://gulpjs.com/">gulp</a>来进行调试，今天就介绍一下这个工具的用法：</p>
+<h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>官网有<a href="https://www.browsersync.io/#install">Get started</a> 教程，但是使用起来没用gulp方便，官方也有BrowserSync for Gulp的插件，并有明确文档说明<a href="https://www.browsersync.io/docs/gulp/">如何与Gulp整合</a> 。</p>
+        
+          <a class="article-more-a" href="/2016/01/13/browsersync/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mobile</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">browsersync</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/13/browsersync/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-css-center" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -507,74 +580,6 @@
 
 
   
-    <article id="post-angularJS-learning-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/29/angularJS-learning-8/">Angularjs学习(8)之依赖注入</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/29/angularJS-learning-8/" class="archive-article-date">
-  	<time datetime="2015-08-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个对象通常有三种方式可以获得对其依赖的控制权：<br>(1) 在内部创建依赖；<br>(2) 通过全局变量进行引用；<br>(3) 在需要的地方通过参数进行传递。<br>依赖注入是通过第三种方式实现的。其余两种方式会带来各种问题，例如污染全局作用域，使隔离变得异常困难等。依赖注入是一种设计模式，它可以去除对依赖关系的硬编码，从而可以在运行时改变甚至移除依赖关系。在运行时修改依赖关系的能力对测试来讲是非常理想的，因为它允许我们创建一个隔离的环境，从而在测试环境可以使用模拟的对象取代生产环境中的真实对象。从功能上看，依赖注入会事先自动查找依赖关系，并将注入目标告知被依赖的资源，这样就可以在目标需要时立即将资源注入进去。在编写依赖于其他对象或库的组件时，我们需要描述组件之间的依赖关系。在运行期，注入器会创建依赖的实例，并负责将它传递给依赖的消费者。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 出自Angular文档的优秀示例</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SomeClass</span>(<span class="params">greeter</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.greeter = greeter;</div><div class="line">&#125;</div><div class="line">SomeClass.prototype.greetName = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.greeter.greet(name);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//注意，示例代码在全局作用域上创建了一个控制器，这并不是一个好主意，这里只是为了方便演示。</span></div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2015/08/29/angularJS-learning-8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/29/angularJS-learning-8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -717,10 +722,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -730,6 +731,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,11 +814,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -826,10 +843,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -137,6 +137,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nodejs-learning-materials" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/13/nodejs-learning-materials/">nodejs资料收集</a>
+    </h1>
+  
+
+        
+        <a href="/2014/10/13/nodejs-learning-materials/" class="archive-article-date">
+  	<time datetime="2014-10-13T08:53:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-10-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="从零开始nodejs系列文章"><a href="#从零开始nodejs系列文章" class="headerlink" title="从零开始nodejs系列文章"></a><a href="http://blog.fens.me/series-nodejs/" title="从零开始nodejs系列文章" target="_blank" rel="external">从零开始nodejs系列文章</a></h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/10/13/nodejs-learning-materials/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Nodejs-construct-WebServer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -510,98 +575,6 @@
 
 
   
-    <article id="post-enable-googlefont-to-speed-wordpress" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/30/enable-googlefont-to-speed-wordpress/">禁用 Google Fonts，加快 WordPress 打开速度</a>
-    </h1>
-  
-
-        
-        <a href="/2014/07/30/enable-googlefont-to-speed-wordpress/" class="archive-article-date">
-  	<time datetime="2014-07-30T11:28:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>最近google被墙，博客因为调用了google的font导致加载缓慢，检测速度为23s左右，所以上网搜了一下解决方法，解决办法如下
-
-方法一：
-</code></pre><pre class="lang:php decode:true">//移除google fonts api
-function remove_open_sans_from_wp_core() {
- // 移除 open-sans 字体
-wp_deregister_style( 'open-sans' );
-wp_register_style( 'open-sans', false );
-wp_enqueue_style('open-sans','');
-// 移除 bushwick-lato 字体
-wp_deregister_style( 'bushwick-lato' );
-wp_register_style( 'bushwick-lato', false );
-wp_enqueue_style('bushwick-lato','');
-}
-add_action( 'init', 'remove_open_sans_from_wp_core' );</pre>
-
-<pre><code>方法二：
-</code></pre><pre class="lang:php decode:true ">add_filter( 'gettext_with_context', 'wpjam_disable_google_fonts', 888, 4);
-function wpjam_disable_google_fonts($translations, $text, $context, $domain ) {
-    $google_fonts_contexts = array('Open Sans font: on or off','Lato font: on or off','Source Sans Pro font: on or off','Bitter font: on or off');
-    if( $text == 'on' &amp;&amp; in_array($context, $google_fonts_contexts ) ){
-        $translations = 'off';
-    }
-
-    return $translations;
-}</pre>
-
-<p>方法三：</p>
-<p>经检测，上述方法不太有效，所以楼主综合了一下网上的方法，总结出了第三个方法</p>
-        
-          <a class="article-more-a" href="/2014/07/30/enable-googlefont-to-speed-wordpress/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wordpress</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/07/30/enable-googlefont-to-speed-wordpress/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
@@ -744,10 +717,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -757,6 +726,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,11 +809,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,10 +838,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">

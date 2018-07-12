@@ -137,6 +137,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-enable-googlefont-to-speed-wordpress" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/30/enable-googlefont-to-speed-wordpress/">禁用 Google Fonts，加快 WordPress 打开速度</a>
+    </h1>
+  
+
+        
+        <a href="/2014/07/30/enable-googlefont-to-speed-wordpress/" class="archive-article-date">
+  	<time datetime="2014-07-30T11:28:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-07-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>最近google被墙，博客因为调用了google的font导致加载缓慢，检测速度为23s左右，所以上网搜了一下解决方法，解决办法如下
+
+方法一：
+</code></pre><pre class="lang:php decode:true">//移除google fonts api
+function remove_open_sans_from_wp_core() {
+ // 移除 open-sans 字体
+wp_deregister_style( 'open-sans' );
+wp_register_style( 'open-sans', false );
+wp_enqueue_style('open-sans','');
+// 移除 bushwick-lato 字体
+wp_deregister_style( 'bushwick-lato' );
+wp_register_style( 'bushwick-lato', false );
+wp_enqueue_style('bushwick-lato','');
+}
+add_action( 'init', 'remove_open_sans_from_wp_core' );</pre>
+
+<pre><code>方法二：
+</code></pre><pre class="lang:php decode:true ">add_filter( 'gettext_with_context', 'wpjam_disable_google_fonts', 888, 4);
+function wpjam_disable_google_fonts($translations, $text, $context, $domain ) {
+    $google_fonts_contexts = array('Open Sans font: on or off','Lato font: on or off','Source Sans Pro font: on or off','Bitter font: on or off');
+    if( $text == 'on' &amp;&amp; in_array($context, $google_fonts_contexts ) ){
+        $translations = 'off';
+    }
+
+    return $translations;
+}</pre>
+
+<p>方法三：</p>
+<p>经检测，上述方法不太有效，所以楼主综合了一下网上的方法，总结出了第三个方法</p>
+        
+          <a class="article-more-a" href="/2014/07/30/enable-googlefont-to-speed-wordpress/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wordpress</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/07/30/enable-googlefont-to-speed-wordpress/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-css-selector-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -598,77 +690,6 @@ $(function () {
 
 
   
-    <article id="post-inline-an-block-element" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/06/26/inline-an-block-element/">关于块级元素和行内元素</a>
-    </h1>
-  
-
-        
-        <a href="/2014/06/26/inline-an-block-element/" class="archive-article-date">
-  	<time datetime="2014-06-26T13:55:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常见的行内元素："><a href="#常见的行内元素：" class="headerlink" title="常见的行内元素："></a>常见的行内元素：</h2><p><span style="color: #000000;"><strong>a</strong></span> – 锚点，<strong>abbr</strong> – 缩写，<strong>acronym</strong> – 首字，<strong>b</strong> – 粗体(不推荐)，<strong>bdo</strong> – bidi override，<strong>big</strong> – 大字体，<strong>br</strong> – 换行，<strong>cite</strong> – 引用，<strong>code</strong> – 计算机代码(在引用源码的时候需要)，<strong>dfn</strong> – 定义字段，<strong>em</strong> – 强调，<strong>font</strong> – 字体设定(不推荐)，<strong>i</strong> – 斜体，<strong>img</strong> – 图片，<strong>input</strong> – 输入框，<strong>kbd</strong> – 定义键盘文本，<strong>label</strong> – 表格标签，<strong>q</strong> – 短引用，<strong>s</strong> – 中划线(不推荐)，<strong>samp</strong> – 定义范例计算机代码，<strong>select</strong> – 项目选择，<strong>small</strong> – 小字体文本，<strong><span style="color: #000000;">span</span></strong> – 常用内联容器，定义文本内区块，<strong>strike</strong> – 中划线，<strong>strong</strong> – 粗体强调，<strong>sub</strong> – 下标，<strong>sup</strong> – 上标，<strong>textarea</strong> – 多行文本输入框，<strong>tt</strong> – 电传文本，<strong>u</strong> – 下划线</p>
-<p><strong><span style="color: #ff0000;"><span style="color: #000000;">常用的<span style="color: #ff0000;">行内元素</span>要记住</span>：a、span、img、input、lable、select、strong、textarea</span></strong></p>
-<h2 id="常见的块级元素："><a href="#常见的块级元素：" class="headerlink" title="常见的块级元素："></a>常见的块级元素：</h2><p><strong>address</strong> – 地址，<strong>blockquote</strong> – 块引用，<strong>center</strong> – 举中对齐块，<strong>dir</strong> – 目录列表，<strong>div</strong> – 常用块级容器，也是CSS layout的主要标签，<strong>dl</strong> – 定义列表，<strong>fieldset</strong> – form控制组，<strong>form</strong> – 交互表单，<strong>h1</strong> – 大标题，<strong>h2</strong> – 副标题，<strong>h3</strong> – 3级标题，<strong>h4</strong> – 4级标题，<strong>h5</strong> – 5级标题，<strong>h6</strong> – 6级标题，<strong>hr</strong> – 水平分隔线，<strong>isindex</strong> – input prompt，<strong>menu</strong> – 菜单列表，<strong>noframes</strong> – frames可选内容，（对于不支持frame的浏览器显示此区块内容，<strong>noscript</strong> – 可选脚本内容（对于不支持script的浏览器显示此内容），<strong>ol</strong> – 有序表单，<strong>p</strong> – 段落，<strong>pre</strong> – 格式化文本，<strong>table</strong> – 表格，<strong>ul</strong> – 无序列表</p>
-<p><span style="color: #ff0000;"><strong><span style="color: #000000;">常用的<span style="color: #ff0000;">块级元素</span>要记住</span>：div、h1~h6、dl、ul、ol</strong></span></p>
-        
-          <a class="article-more-a" href="/2014/06/26/inline-an-block-element/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/06/26/inline-an-block-element/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -811,10 +832,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -824,6 +841,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -903,11 +924,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -920,10 +953,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">

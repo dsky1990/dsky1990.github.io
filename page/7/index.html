@@ -137,6 +137,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angularJS-learning-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/29/angularJS-learning-8/">Angularjs学习(8)之依赖注入</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/29/angularJS-learning-8/" class="archive-article-date">
+  	<time datetime="2015-08-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个对象通常有三种方式可以获得对其依赖的控制权：<br>(1) 在内部创建依赖；<br>(2) 通过全局变量进行引用；<br>(3) 在需要的地方通过参数进行传递。<br>依赖注入是通过第三种方式实现的。其余两种方式会带来各种问题，例如污染全局作用域，使隔离变得异常困难等。依赖注入是一种设计模式，它可以去除对依赖关系的硬编码，从而可以在运行时改变甚至移除依赖关系。在运行时修改依赖关系的能力对测试来讲是非常理想的，因为它允许我们创建一个隔离的环境，从而在测试环境可以使用模拟的对象取代生产环境中的真实对象。从功能上看，依赖注入会事先自动查找依赖关系，并将注入目标告知被依赖的资源，这样就可以在目标需要时立即将资源注入进去。在编写依赖于其他对象或库的组件时，我们需要描述组件之间的依赖关系。在运行期，注入器会创建依赖的实例，并负责将它传递给依赖的消费者。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 出自Angular文档的优秀示例</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SomeClass</span>(<span class="params">greeter</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.greeter = greeter;</div><div class="line">&#125;</div><div class="line">SomeClass.prototype.greetName = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.greeter.greet(name);</div><div class="line">&#125;;</div><div class="line"><span class="comment">//注意，示例代码在全局作用域上创建了一个控制器，这并不是一个好主意，这里只是为了方便演示。</span></div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/08/29/angularJS-learning-8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/29/angularJS-learning-8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-angularJS-learning-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -483,81 +551,6 @@
 
 
   
-    <article id="post-angularJS-learning-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/13/angularJS-learning-2/">Angularjs学习(2)之模块和作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/13/angularJS-learning-2/" class="archive-article-date">
-  	<time datetime="2015-07-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>在angularJS中，模块是定义应用的最主要方式。模块包含了主要的应用代码。一个应用可以包含多个模块，每一个模块都包含了定义具体功能的代码。使用模块能带给我们许多好处，例如：</p>
-<ul>
-<li>保持全局命名空间的清洁</li>
-<li>编写测试代码更容易，并能保持其清洁，以便更容易找到互相隔离的功能</li>
-<li>易于在不同的应用间复用代码</li>
-<li>使应用能够以任意顺序加载代码的各个部分</li>
-</ul>
-<p>angularJS允许我们使用angular.module()方法来声明模块，这个方法能接受两个参数，第一个是模块名称，第二个是依赖列表，也就是可以被注入到模块中的对象列表。使用方法如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2015/07/13/angularJS-learning-2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/13/angularJS-learning-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -700,10 +693,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
@@ -713,6 +702,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,11 +785,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">react-native</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,10 +814,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
