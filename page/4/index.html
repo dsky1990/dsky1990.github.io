@@ -137,6 +137,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-symbol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/09/es6-symbol/">ES6学习笔记之Symbol</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/09/es6-symbol/" class="archive-article-date">
+  	<time datetime="2016-04-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>ES5的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是ES6引入Symbol的原因。</p>
+<p>ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。它是JavaScript语言的第七种数据类型，前六种是：Undefined、Null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
+<p>Symbol值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的Symbol类型。凡是属性名属于Symbol类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>();</div><div class="line"><span class="keyword">typeof</span> s <span class="comment">// "symbol"</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，变量<code>s</code>就是一个独一无二的值。<code>typeof</code>运算符的结果，表明变量<code>s</code>是Symbol数据类型，而不是字符串之类的其他类型。</p>
+<p>注意，<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的Symbol是一个原始类型的值，不是对象。也就是说，由于Symbol值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p>
+<p>Symbol函数可以接受一个字符串作为参数，表示对Symbol实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
+        
+          <a class="article-more-a" href="/2016/04/09/es6-symbol/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/09/es6-symbol/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6-object-expansion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -497,75 +570,6 @@
 
 
   
-    <article id="post-es6-array-expansion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/27/es6-array-expansion/">ES6学习笔记之数组的扩展</a>
-    </h1>
-  
-
-        
-        <a href="/2016/02/27/es6-array-expansion/" class="archive-article-date">
-  	<time datetime="2016-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h1><h2 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h2><p><code>Array.from</code>方法用于将两类对象转为真正的数组：类似数组的<code>对象</code>（array-like object）和<code>可遍历</code>（iterable）的对象（包括ES6新增的数据结构Set和Map）。下面是一个类似数组的对象，<code>Array.from</code>将它转为真正的数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arrayLike = &#123;</div><div class="line">    <span class="string">'0'</span>: <span class="string">'a'</span>,</div><div class="line">    <span class="string">'1'</span>: <span class="string">'b'</span>,</div><div class="line">    <span class="string">'2'</span>: <span class="string">'c'</span>,</div><div class="line">    <span class="attr">length</span>: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// ES5的写法</span></div><div class="line"><span class="keyword">var</span> arr1 = [].slice.call(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></div><div class="line"></div><div class="line"><span class="comment">// ES6的写法</span></div><div class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/02/27/es6-array-expansion/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/27/es6-array-expansion/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -768,6 +772,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -777,10 +793,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,10 +816,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -816,11 +824,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,6 +837,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

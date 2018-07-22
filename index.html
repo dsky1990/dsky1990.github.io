@@ -137,6 +137,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-github-api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/github-api/">github抓取数据</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/22/github-api/" class="archive-article-date">
+  	<time datetime="2018-07-22T04:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="获取Personal-access-tokens"><a href="#获取Personal-access-tokens" class="headerlink" title="获取Personal access tokens"></a>获取Personal access tokens</h2><p>进入<a href="https://github.com/settings/tokens">setting</a>,选择<code>Personal access tokens</code>,然后<code>Generate new token</code>，然后<code>Select scopes</code>，然后就可以创建新的<code>token</code>了</p>
+<h2 id="请求github数据"><a href="#请求github数据" class="headerlink" title="请求github数据"></a>请求github数据</h2><p>现在<code>github v4</code>版本采用的是<a href="http://graphql.cn/">graphql</a>，所以我们也采用这个来请求数据。</p>
+<p>安装npm包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn add graphql-request -D</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/07/22/github-api/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">graphql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/22/github-api/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-react-native-install" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -512,78 +587,6 @@
 
 
   
-    <article id="post-es6-module" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/es6-module/">ES6学习笔记之module</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/29/es6-module/" class="archive-article-date">
-  	<time datetime="2016-05-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>ES6的Class只是面向对象编程的语法糖，升级了ES5的构造函数的原型链继承的写法，并没有解决模块化问题。<code>Module</code>功能就是为了解决这个问题而提出的。</p>
-<p>历史上，JavaScript一直没有模块（<code>module</code>）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如Ruby的<code>require</code>、Python的<code>import</code>，甚至就连CSS都有<code>@import</code>，但是JavaScript任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍。</p>
-<p>在ES6之前，社区制定了一些模块加载方案，最主要的有<code>CommonJS</code>和<code>AMD</code>两种。前者用于服务器，后者用于浏览器。ES6在语言规格的层面上，实现了模块功能，而且实现得相当简单，完全可以取代现有的<code>CommonJS</code>和<code>AMD</code>规范，成为浏览器和服务器通用的模块解决方案。</p>
-<p>ES6模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。<code>CommonJS</code>和<code>AMD</code>模块，都只能在运行时确定这些东西。比如，<code>CommonJS</code>模块就是对象，输入时必须查找对象属性。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// CommonJS模块</span></div><div class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 等同于</span></div><div class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> stat = _fs.stat, exists = _fs.exists, readfile = _fs.readfile;</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/05/29/es6-module/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/29/es6-module/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -786,6 +789,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -795,10 +810,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,10 +833,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -834,11 +841,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,6 +854,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

@@ -137,6 +137,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Javascript-module-es6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/10/Javascript-module-es6/">JavaScript模块化开发（四）——ES6模块</a>
+    </h1>
+  
+
+        
+        <a href="/2016/05/10/Javascript-module-es6/" class="archive-article-date">
+  	<time datetime="2016-05-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="模块基础"><a href="#模块基础" class="headerlink" title="模块基础"></a>模块基础</h2><p>一个 <code>ES6</code> 的模块是一个包含了 JS 代码的文件。<code>ES6</code> 里没有所谓的 <code>module</code>关键字。一个模块看起来就和一个普通的脚本文件一样，除了以下两个区别：</p>
+<ul>
+<li><p>ES6 的模块自动开启严格模式，即使你没有写 ‘use strict’。</p>
+</li>
+<li><p>你可以在模块中使用 import 和 export。</p>
+</li>
+</ul>
+<p>让我们先来看看 <code>export</code>。在模块中声明的任何东西都是默认私有的，如果你想对其他模块 <code>Public</code>，你必须 <code>export</code>那部分代码。我们有几种实现方法，最简单的方式是添加一个 <code>export</code> 关键字。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// a.js</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">detectCats</span>(<span class="params">canvas, options</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> kittydar = <span class="keyword">new</span> Kittydar(options);</div><div class="line">  <span class="keyword">return</span> kittydar.detectCats(canvas);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Kittydar</span> </span>&#123;</div><div class="line">  <span class="comment">// code here </span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// This helper function isn't exported.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resizeCanvas</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// code here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2016/05/10/Javascript-module-es6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">module</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">AMD</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CommonJS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/05/10/Javascript-module-es6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Javascript-module-amd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -530,79 +617,6 @@
 
 
   
-    <article id="post-es6-symbol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/09/es6-symbol/">ES6学习笔记之Symbol</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/09/es6-symbol/" class="archive-article-date">
-  	<time datetime="2016-04-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>ES5的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这就是ES6引入Symbol的原因。</p>
-<p>ES6引入了一种新的原始数据类型Symbol，表示独一无二的值。它是JavaScript语言的第七种数据类型，前六种是：Undefined、Null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
-<p>Symbol值通过<code>Symbol</code>函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的Symbol类型。凡是属性名属于Symbol类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>();</div><div class="line"><span class="keyword">typeof</span> s <span class="comment">// "symbol"</span></div></pre></td></tr></table></figure></p>
-<p>上面代码中，变量<code>s</code>就是一个独一无二的值。<code>typeof</code>运算符的结果，表明变量<code>s</code>是Symbol数据类型，而不是字符串之类的其他类型。</p>
-<p>注意，<code>Symbol</code>函数前不能使用<code>new</code>命令，否则会报错。这是因为生成的Symbol是一个原始类型的值，不是对象。也就是说，由于Symbol值不是对象，所以不能添加属性。基本上，它是一种类似于字符串的数据类型。</p>
-<p>Symbol函数可以接受一个字符串作为参数，表示对Symbol实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。</p>
-        
-          <a class="article-more-a" href="/2016/04/09/es6-symbol/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/09/es6-symbol/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -805,6 +819,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -814,10 +840,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,10 +863,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -853,11 +871,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,6 +884,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

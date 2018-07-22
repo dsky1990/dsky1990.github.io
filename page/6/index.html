@@ -137,6 +137,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-px-or-rem-or-em" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/px-or-rem-or-em/">移动端关于px,rem,em的选择</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/17/px-or-rem-or-em/" class="archive-article-date">
+  	<time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先来介绍下这三个单位：</p>
+<blockquote>
+<p><code>px</code>：px是Pixel（像素）的缩写，相对长度单位，这个是相对于屏幕的分辨率来说的。<br><code>em</code>：相对于父亲元素的单位，例如设置body为<code>font-size:62.5%</code>因为游览器默认body是16像素，这样计算就可以使得1em = 10px，方便计算。但是这里会存在一个问题，em是相对于父元素的，例如一个ul是16px即为1.6em，里面有li为1.6em，这样计算的话li的实际font-size为10x16x16，如果里面有其他元素就更麻烦了，这里可以设置<code>li li, li p, li span, li p span, p span{font-size:1em}</code>来重置字体，但是结构复杂的时候就很麻烦了。<br><code>rem</code>：root em，看到这个我们就可以理解rem是相对根元素html的，例如如果设置<code>font-size:16px</code>，然后设置<code>p{font-size:1rem}</code>,那么这里的p标签就是16px。</p>
+</blockquote>
+<p>接下来说一下几个概念：</p>
+<blockquote>
+<p><code>物理像素（physical pixel）</code>：一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。<br><code>设备独立像素（density-independent pixel）</code>：设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。<br><code>设备像素比(device pixel ratio )</code>：设备像素比(简称dpr)定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式的得到<code>设备像素比 = 物理像素 / 设备独立像素</code><br>
+        
+          <a class="article-more-a" href="/2016/01/17/px-or-rem-or-em/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mobile</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sass</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/17/px-or-rem-or-em/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-browsersync" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -512,74 +598,6 @@
 
 
   
-    <article id="post-angularJS-learning-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/05/angularJS-learning-9/">Angularjs学习(9)之服务</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/05/angularJS-learning-9/" class="archive-article-date">
-  	<time datetime="2015-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>到目前为止，我们只关心视图是如何同<code>$scope</code>绑定在一起，以及控制器是如何管理数据的。出于内存占用和性能的考虑，控制器只会在需要时被实例化，并且不再需要就会被销毁。这意味着每次切换路由或重新加载视图时，当前的控制器会被AngularJS清除掉。<br>服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。<br>服务是一个单例对象，在每个应用中只会被实例化一次（被<code>$injector</code>实例化），并且是延迟加载的（需要时才会被创建）。服务提供了把与特定功能相关联的方法集中在一起的接口。以AngularJS的<code>$http</code>服务为例，它提供了对浏览器的<code>XMLHttpRequest</code>对象的底层访问功能，我们可以通过<code>$http</code>的API同<code>XMLHttpRequest</code>进行交互，而不需要因为调用这些底层代码而污染应用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 示例服务，在应用的整个生命周期内保存current_user</span></div><div class="line">angular.module(<span class="string">'myApp'</span>, []).factory(<span class="string">'UserService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> current_user;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">getCurrentUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> current_user;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">setCurrentUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params">user</span>) </span>&#123;</div><div class="line">			current_user = user;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2015/09/05/angularJS-learning-9/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/05/angularJS-learning-9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -782,6 +800,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -791,10 +821,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,10 +844,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -830,11 +852,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,6 +865,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

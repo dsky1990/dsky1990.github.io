@@ -137,6 +137,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angularJS-learning-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/05/angularJS-learning-9/">Angularjs学习(9)之服务</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/05/angularJS-learning-9/" class="archive-article-date">
+  	<time datetime="2015-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>到目前为止，我们只关心视图是如何同<code>$scope</code>绑定在一起，以及控制器是如何管理数据的。出于内存占用和性能的考虑，控制器只会在需要时被实例化，并且不再需要就会被销毁。这意味着每次切换路由或重新加载视图时，当前的控制器会被AngularJS清除掉。<br>服务提供了一种能在应用的整个生命周期内保持数据的方法，它能够在控制器之间进行通信，并且能保证数据的一致性。<br>服务是一个单例对象，在每个应用中只会被实例化一次（被<code>$injector</code>实例化），并且是延迟加载的（需要时才会被创建）。服务提供了把与特定功能相关联的方法集中在一起的接口。以AngularJS的<code>$http</code>服务为例，它提供了对浏览器的<code>XMLHttpRequest</code>对象的底层访问功能，我们可以通过<code>$http</code>的API同<code>XMLHttpRequest</code>进行交互，而不需要因为调用这些底层代码而污染应用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 示例服务，在应用的整个生命周期内保存current_user</span></div><div class="line">angular.module(<span class="string">'myApp'</span>, []).factory(<span class="string">'UserService'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$http</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> current_user;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">getCurrentUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> current_user;</div><div class="line">		&#125;,</div><div class="line">		<span class="attr">setCurrentUser</span>: <span class="function"><span class="keyword">function</span>(<span class="params">user</span>) </span>&#123;</div><div class="line">			current_user = user;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/09/05/angularJS-learning-9/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/05/angularJS-learning-9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-angularJS-learning-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -482,75 +550,6 @@
 
 
   
-    <article id="post-angularJS-learning-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/24/angularJS-learning-3/">Angularjs学习(3)之控制器和表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/24/angularJS-learning-3/" class="archive-article-date">
-  	<time datetime="2015-07-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p>AngularJS中的控制器是一个函数，用来向视图的作用域中添加额外的功能。我们用它来给作用域对象设置初始状态，并添加自定义行为。</p>
-<p>当我们在页面上创建一个新的控制器时， AngularJS会生成并传递一个新的scope给这个控制器。可以在这个控制器里初始化$scope。由于AngularJS会负责处理控制器的实例化过程，我们只需编写构造函数即可。下面的例子展示了控制器初始化：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">FirstController</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">	$scope.message = <span class="string">"hello"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2015/07/24/angularJS-learning-3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/24/angularJS-learning-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -753,6 +752,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -762,10 +773,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,10 +796,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -801,11 +804,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,6 +817,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

@@ -137,6 +137,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-array-expansion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/27/es6-array-expansion/">ES6学习笔记之数组的扩展</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/27/es6-array-expansion/" class="archive-article-date">
+  	<time datetime="2016-02-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h1><h2 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h2><p><code>Array.from</code>方法用于将两类对象转为真正的数组：类似数组的<code>对象</code>（array-like object）和<code>可遍历</code>（iterable）的对象（包括ES6新增的数据结构Set和Map）。下面是一个类似数组的对象，<code>Array.from</code>将它转为真正的数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arrayLike = &#123;</div><div class="line">    <span class="string">'0'</span>: <span class="string">'a'</span>,</div><div class="line">    <span class="string">'1'</span>: <span class="string">'b'</span>,</div><div class="line">    <span class="string">'2'</span>: <span class="string">'c'</span>,</div><div class="line">    <span class="attr">length</span>: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// ES5的写法</span></div><div class="line"><span class="keyword">var</span> arr1 = [].slice.call(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></div><div class="line"></div><div class="line"><span class="comment">// ES6的写法</span></div><div class="line"><span class="keyword">let</span> arr2 = <span class="built_in">Array</span>.from(arrayLike); <span class="comment">// ['a', 'b', 'c']</span></div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/02/27/es6-array-expansion/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/02/27/es6-array-expansion/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6-number-expansion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -486,92 +555,6 @@
 
 
   
-    <article id="post-px-or-rem-or-em" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/px-or-rem-or-em/">移动端关于px,rem,em的选择</a>
-    </h1>
-  
-
-        
-        <a href="/2016/01/17/px-or-rem-or-em/" class="archive-article-date">
-  	<time datetime="2016-01-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先来介绍下这三个单位：</p>
-<blockquote>
-<p><code>px</code>：px是Pixel（像素）的缩写，相对长度单位，这个是相对于屏幕的分辨率来说的。<br><code>em</code>：相对于父亲元素的单位，例如设置body为<code>font-size:62.5%</code>因为游览器默认body是16像素，这样计算就可以使得1em = 10px，方便计算。但是这里会存在一个问题，em是相对于父元素的，例如一个ul是16px即为1.6em，里面有li为1.6em，这样计算的话li的实际font-size为10x16x16，如果里面有其他元素就更麻烦了，这里可以设置<code>li li, li p, li span, li p span, p span{font-size:1em}</code>来重置字体，但是结构复杂的时候就很麻烦了。<br><code>rem</code>：root em，看到这个我们就可以理解rem是相对根元素html的，例如如果设置<code>font-size:16px</code>，然后设置<code>p{font-size:1rem}</code>,那么这里的p标签就是16px。</p>
-</blockquote>
-<p>接下来说一下几个概念：</p>
-<blockquote>
-<p><code>物理像素（physical pixel）</code>：一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。<br><code>设备独立像素（density-independent pixel）</code>：设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。<br><code>设备像素比(device pixel ratio )</code>：设备像素比(简称dpr)定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式的得到<code>设备像素比 = 物理像素 / 设备独立像素</code><br>
-        
-          <a class="article-more-a" href="/2016/01/17/px-or-rem-or-em/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mobile</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sass</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/01/17/px-or-rem-or-em/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -774,6 +757,18 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">graphql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
@@ -783,10 +778,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,10 +801,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -822,11 +809,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,6 +822,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>
