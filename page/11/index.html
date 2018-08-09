@@ -137,6 +137,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-css-clear-float" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/15/css-clear-float/">css闭合（清除）浮动</a>
+    </h1>
+  
+
+        
+        <a href="/2015/01/15/css-clear-float/" class="archive-article-date">
+  	<time datetime="2015-01-15T09:21:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经常在写页面的时候会碰到一种情况，明明有子元素，为什么父元素高度为0的情况，就像下面</p>
+<p><a href="http://jsbin.com/hutaji/1/">http://jsbin.com/hutaji/1/</a></p>
+<p>ID为wrapper的父元素有两个子元素，但是它的高度为0！</p>
+<p><span style="color: #ff0000;">原因：<span style="color: #000000;">浮动元素不会影响父元素的布局（最早设计浮动这个机制的时候，就是为了实现文字环绕在图片周围的效果。所以浮动的时候，文字会环绕在浮动元素周围。）</span></span></p>
+<p><span style="color: #ff0000;">再说下浮动</span>：浮动的框可以左右移动，直至它的外边缘遇到包含框或者另一个浮动框的边缘。浮动框不属于文档中的普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样，当浮动框高度超出包含框的时候，也就会出现包含框不会自动伸高来闭合浮动元素（“高度塌陷”现象）。顾名思义，就是漂浮于普通流之上，像浮云一样，但是只能左右浮动。<br>正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框内部由于不存在其他普通流元素了，也就表现出高度为0（高度塌陷）。在实际布局中，往往这并不是我们所希望的，所以需要闭合浮动元素，使其包含框表现出正常的高度。</p>
+<p><span style="color: #ff0000;">浮动的影响</span>：</p>
+<p>1、背景不能显示<br>由于浮动产生，如果对父级设置了（CSS background背景）CSS背景颜色或CSS背景图片，而父级不能被撑开，所以导致CSS背景不能显示。</p>
+<p>
+        
+          <a class="article-more-a" href="/2015/01/15/css-clear-float/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/01/15/css-clear-float/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Javascript-convers-DateString-to-DateObject" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -492,99 +567,6 @@
 
 
   
-    <article id="post-Several-kinds-of-layout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/17/Several-kinds-of-layout/">几种布局方式（两栏布局，三栏布局，等高布局，流式布局）</a>
-    </h1>
-  
-
-        
-        <a href="/2014/11/17/Several-kinds-of-layout/" class="archive-article-date">
-  	<time datetime="2014-11-17T05:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="最近面试的时候被问到了两栏或者三栏自适应等相关布局问题，现在总结一下"><a href="#最近面试的时候被问到了两栏或者三栏自适应等相关布局问题，现在总结一下" class="headerlink" title="最近面试的时候被问到了两栏或者三栏自适应等相关布局问题，现在总结一下"></a>最近面试的时候被问到了两栏或者三栏自适应等相关布局问题，现在总结一下</h2><p><span style="color: #ff6600;">一、左侧固定宽度，右侧自适应</span></p>
-<p><img src="http://dskyblog-wordpress.stor.sinaapp.com/blog/2-1-r-auto.png" alt=""></p>
-<p>1. float+margin（一侧定宽，一侧自动），代码如下</p>
-<pre class="lang:xhtml decode:true ">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;meta name="robots" content="noindex"&gt;
-  &lt;title&gt;1\. float+margin（一侧定宽，一侧自动）&lt;/title&gt;
-&lt;style id="jsbin-css"&gt;
-html,body{margin:0; padding: 0;}
-.m-box{margin: 5px;}
-.m-box .left,.m-box .right { height: 200px; }
-.m-box .left{float:left; width:200px; background-color:#ccc; }
-.m-box .right{margin-left:210px;  background-color:#666;}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;div class="m-box"&gt;
-      &lt;div class="left"&gt;左&lt;/div&gt;
-      &lt;div class="right"&gt;右&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-
-<p> 预览地址：<a href="http://jsbin.com/fewime/1/" title="float+margin（一侧定宽，一侧自动）">float+margin（一侧定宽，一侧自动</a>）</p>
-        
-          <a class="article-more-a" href="/2014/11/17/Several-kinds-of-layout/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">layout</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/11/17/Several-kinds-of-layout/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
@@ -731,15 +713,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,15 +773,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">graphql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -823,11 +805,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">phantomjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node-crawler</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">project</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sass</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,7 +833,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,10 +846,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
