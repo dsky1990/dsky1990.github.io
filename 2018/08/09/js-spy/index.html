@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/08/09/js-spy/index.html">
 <meta property="og:site_name" content="dsky的博客">
 <meta property="og:description" content="通过axios请求页面抓取数据这个是最常见的方法1234567891011const response = axios(&amp;#123;    method: &apos;GET&apos;,    url: `http://alexa.chinaz.com/$&amp;#123;site&amp;#125;/`,    responseType:&apos;text&apos;,    timeout: 30*1000,    headers:&amp;#123">
-<meta property="og:updated_time" content="2018-08-09T03:19:47.000Z">
+<meta property="og:updated_time" content="2018-08-09T03:22:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js爬虫处理办法">
 <meta name="twitter:description" content="通过axios请求页面抓取数据这个是最常见的方法1234567891011const response = axios(&amp;#123;    method: &apos;GET&apos;,    url: `http://alexa.chinaz.com/$&amp;#123;site&amp;#125;/`,    responseType:&apos;text&apos;,    timeout: 30*1000,    headers:&amp;#123">
@@ -166,7 +166,7 @@
 <p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">cheerio</a>是一个类似<code>jq</code>的库，可以让我们在抓取后的<code>content</code>上进行方便的<code>dom</code>操作，<a href="https://github.com/petkaantonov/bluebird" target="_blank" rel="external">bluebird</a>，是一个延时库</p>
 <p>但是这个库有个不好的地方，就是如果页面太多了，就会<code>crash</code>，所以我们用下面的框架</p>
 <h2 id="通过node-crawler抓取数据"><a href="#通过node-crawler抓取数据" class="headerlink" title="通过node-crawler抓取数据"></a>通过node-crawler抓取数据</h2><p><a href="https://github.com/bda-research/node-crawler" target="_blank" rel="external">node-crawler</a>，是一个nodejs的爬虫框架，可以方便的解决第一和第二存在的问题</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> crawlerDetail = <span class="keyword">new</span> Crawler(&#123;</div><div class="line">    <span class="attr">maxConnections</span> : <span class="number">20</span>,</div><div class="line">    <span class="attr">rateLimit</span>: <span class="number">10</span>*<span class="number">1000</span>,</div><div class="line">    <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span> (<span class="params">error, res, done</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(error)&#123;</div><div class="line">        <span class="built_in">console</span>.log(error);</div><div class="line">        i++;</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">const</span> $ = res.$;</div><div class="line">      &#125;</div><div class="line">      done();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">crawlerDetail.queue(urlList);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> crawlerDetail = <span class="keyword">new</span> Crawler(&#123;</div><div class="line">    <span class="attr">maxConnections</span> : <span class="number">20</span>,</div><div class="line">    <span class="attr">rateLimit</span>: <span class="number">10</span>*<span class="number">1000</span>,</div><div class="line">    <span class="attr">callback</span>: <span class="function"><span class="keyword">function</span> (<span class="params">error, res, done</span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span>(error)&#123;</div><div class="line">        <span class="built_in">console</span>.log(error);</div><div class="line">      &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">const</span> $ = res.$;</div><div class="line">      &#125;</div><div class="line">      done();</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">crawlerDetail.queue(urlList);</div></pre></td></tr></table></figure>
 <p><code>node-crawler</code>有一个比较好的概念就是队列，这样可以让页面一个个访问，暂时简单介绍到这里</p>
 
       
@@ -367,15 +367,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">mobile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,10 +475,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
@@ -487,7 +483,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">translate</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sass</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,6 +496,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">translate</a>
               </li>
              
               <li class="article-tag-list-item">
