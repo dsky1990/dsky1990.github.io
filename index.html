@@ -137,6 +137,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-canvas-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/12/canvas-1/">canvas入门（1）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/12/canvas-1/" class="archive-article-date">
+  	<time datetime="2018-08-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="canvas基本用法"><a href="#canvas基本用法" class="headerlink" title="canvas基本用法"></a>canvas基本用法</h1><p>介绍一下canvas基本的使用方法</p>
+<h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-fillstyle">fillStyle</a></td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-strokestyle">strokeStyle</a></td>
+<td>设置或返回用于笔触的颜色、渐变或模式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowcolor">shadowColor</a></td>
+<td>设置或返回用于阴影的颜色。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowblur">shadowBlur</a></td>
+<td>设置或返回用于阴影的模糊级别。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowoffsetx">shadowOffsetX</a></td>
+<td>设置或返回阴影与形状的水平距离。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowoffsety">shadowOffsetY</a></td>
+<td>设置或返回阴影与形状的垂直距离。</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/2018/08/12/canvas-1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/12/canvas-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-js-spy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -520,76 +626,6 @@
 
 
   
-    <article id="post-input-preventDefault" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/11/input-preventDefault/">preventDefault事件对input type为checkbox或radio时的click影响</a>
-    </h1>
-  
-
-        
-        <a href="/2016/06/11/input-preventDefault/" class="archive-article-date">
-  	<time datetime="2016-06-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近做项目的时候发现了一个问题，在<code>document</code>上绑定<code>clcik</code>事件后，<code>input type</code>为<code>checkbox</code>或<code>radio</code>的状态不会改变，但是绑定的事件会执行，Demo如下：</p>
-<p><a class="jsbin-embed" href="http://jsbin.com/megiva/1/embed?html,js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.39.11"></script></p>
-<p>可以看到，在执行完<code>$(this).attr(&#39;checked&#39;,true);</code>后到<code>alert</code>时，<code>checkbox</code>的状态是选中的，而且弹出的状态也是<code>checked</code>，也就是说，这个时候，<code>checkbox</code>是选中的。但是为什么我们在点击确定之后，<code>checkbox</code>又变回了未选中了呢？在相应事件结束之后，一定还有什么东西让它改回去了？其实，这是<code>checkbox</code>的默认<code>click</code>事件的做的。也许大家会问，我不是通过<code>e.preventDefault()</code>把默认事件去掉了吗？为什么还有默认事件？难道<code>e.preventDefault()</code>没有生效？</p>
-        
-          <a class="article-more-a" href="/2016/06/11/input-preventDefault/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/11/input-preventDefault/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -736,10 +772,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -748,7 +780,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,11 +812,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -793,10 +837,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

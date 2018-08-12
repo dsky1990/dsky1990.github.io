@@ -6,14 +6,99 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2014/11 | dsky的博客</title>
+  <title>canvas入门（1） | dsky的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dsky的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2014/11/index.html">
+  <meta name="description" content="canvas基本用法介绍一下canvas基本的使用方法
+颜色、样式和阴影
+
+
+属性
+描述
+
+
+
+
+fillStyle
+设置或返回用于填充绘画的颜色、渐变或模式。
+
+
+strokeStyle
+设置或返回用于笔触的颜色、渐变或模式。
+
+
+shadowColor
+设置或返回用于阴影的颜色。
+
+
+shadowBlur
+设置或返回用于阴影的模糊级别。
+
+
+shadowOffsetX
+设置或返回阴影与形状的水">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas入门（1）">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/canvas-1/index.html">
 <meta property="og:site_name" content="dsky的博客">
+<meta property="og:description" content="canvas基本用法介绍一下canvas基本的使用方法
+颜色、样式和阴影
+
+
+属性
+描述
+
+
+
+
+fillStyle
+设置或返回用于填充绘画的颜色、渐变或模式。
+
+
+strokeStyle
+设置或返回用于笔触的颜色、渐变或模式。
+
+
+shadowColor
+设置或返回用于阴影的颜色。
+
+
+shadowBlur
+设置或返回用于阴影的模糊级别。
+
+
+shadowOffsetX
+设置或返回阴影与形状的水">
+<meta property="og:updated_time" content="2018-08-12T09:48:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dsky的博客">
+<meta name="twitter:title" content="canvas入门（1）">
+<meta name="twitter:description" content="canvas基本用法介绍一下canvas基本的使用方法
+颜色、样式和阴影
+
+
+属性
+描述
+
+
+
+
+fillStyle
+设置或返回用于填充绘画的颜色、渐变或模式。
+
+
+strokeStyle
+设置或返回用于笔触的颜色、渐变或模式。
+
+
+shadowColor
+设置或返回用于阴影的颜色。
+
+
+shadowBlur
+设置或返回用于阴影的模糊级别。
+
+
+shadowOffsetX
+设置或返回阴影与形状的水">
   
     <link rel="alternative" href="‘’" title="dsky的博客" type="application/atom+xml">
   
@@ -135,106 +220,438 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-canvas-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/11/17/Several-kinds-of-layout/" class="archive-article-date">
-  	<time datetime="2014-11-17T05:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/17/Several-kinds-of-layout/">几种布局方式（两栏布局，三栏布局，等高布局，流式布局）</a>
+    <h1 class="article-title" itemprop="name">
+      canvas入门（1）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/08/12/canvas-1/" class="archive-article-date">
+  	<time datetime="2018-08-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="canvas基本用法"><a href="#canvas基本用法" class="headerlink" title="canvas基本用法"></a>canvas基本用法</h1><p>介绍一下canvas基本的使用方法</p>
+<h2 id="颜色、样式和阴影"><a href="#颜色、样式和阴影" class="headerlink" title="颜色、样式和阴影"></a>颜色、样式和阴影</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-fillstyle" target="_blank" rel="external">fillStyle</a></td>
+<td>设置或返回用于填充绘画的颜色、渐变或模式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-strokestyle" target="_blank" rel="external">strokeStyle</a></td>
+<td>设置或返回用于笔触的颜色、渐变或模式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowcolor" target="_blank" rel="external">shadowColor</a></td>
+<td>设置或返回用于阴影的颜色。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowblur" target="_blank" rel="external">shadowBlur</a></td>
+<td>设置或返回用于阴影的模糊级别。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowoffsetx" target="_blank" rel="external">shadowOffsetX</a></td>
+<td>设置或返回阴影与形状的水平距离。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-shadowoffsety" target="_blank" rel="external">shadowOffsetY</a></td>
+<td>设置或返回阴影与形状的垂直距离。</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-createlineargradient" target="_blank" rel="external">createLinearGradient()</a></td>
+<td>创建线性渐变（用在画布内容上）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-createpattern" target="_blank" rel="external">createPattern()</a></td>
+<td>在指定的方向上重复指定的元素。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-createradialgradient" target="_blank" rel="external">createRadialGradient()</a></td>
+<td>创建放射状/环形的渐变（用在画布内容上）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-addcolorstop" target="_blank" rel="external">addColorStop()</a></td>
+<td>规定渐变对象中的颜色和停止位置。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="线条样式"><a href="#线条样式" class="headerlink" title="线条样式"></a>线条样式</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-linecap" target="_blank" rel="external">lineCap</a></td>
+<td>设置或返回线条的结束端点样式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-linejoin" target="_blank" rel="external">lineJoin</a></td>
+<td>设置或返回两条线相交时，所创建的拐角类型。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-linewidth" target="_blank" rel="external">lineWidth</a></td>
+<td>设置或返回当前的线条宽度。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-miterlimit" target="_blank" rel="external">miterLimit</a></td>
+<td>设置或返回最大斜接长度。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-rect" target="_blank" rel="external">rect()</a></td>
+<td>创建矩形。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-fillrect" target="_blank" rel="external">fillRect()</a></td>
+<td>绘制”被填充”的矩形。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-strokerect" target="_blank" rel="external">strokeRect()</a></td>
+<td>绘制矩形（无填充）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-clearrect" target="_blank" rel="external">clearRect()</a></td>
+<td>在给定的矩形内清除指定的像素。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-fill" target="_blank" rel="external">fill()</a></td>
+<td>填充当前绘图（路径）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-stroke" target="_blank" rel="external">stroke()</a></td>
+<td>绘制已定义的路径。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-beginpath" target="_blank" rel="external">beginPath()</a></td>
+<td>起始一条路径，或重置当前路径。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-moveto" target="_blank" rel="external">moveTo()</a></td>
+<td>把路径移动到画布中的指定点，不创建线条。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-closepath" target="_blank" rel="external">closePath()</a></td>
+<td>创建从当前点回到起始点的路径。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-lineto" target="_blank" rel="external">lineTo()</a></td>
+<td>添加一个新点，然后在画布中创建从该点到最后指定点的线条。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-clip" target="_blank" rel="external">clip()</a></td>
+<td>从原始画布剪切任意形状和尺寸的区域。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-quadraticcurveto" target="_blank" rel="external">quadraticCurveTo()</a></td>
+<td>创建二次贝塞尔曲线。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-beziercurveto" target="_blank" rel="external">bezierCurveTo()</a></td>
+<td>创建三次贝塞尔曲线。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-arc" target="_blank" rel="external">arc()</a></td>
+<td>创建弧/曲线（用于创建圆形或部分圆）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-arcto" target="_blank" rel="external">arcTo()</a></td>
+<td>创建两切线之间的弧/曲线。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-ispointinpath" target="_blank" rel="external">isPointInPath()</a></td>
+<td>如果指定的点位于当前路径中，则返回 true，否则返回 false。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-scale" target="_blank" rel="external">scale()</a></td>
+<td>缩放当前绘图至更大或更小。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-rotate" target="_blank" rel="external">rotate()</a></td>
+<td>旋转当前绘图。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-translate" target="_blank" rel="external">translate()</a></td>
+<td>重新映射画布上的 (0,0) 位置。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-transform" target="_blank" rel="external">transform()</a></td>
+<td>替换绘图的当前转换矩阵。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-settransform" target="_blank" rel="external">setTransform()</a></td>
+<td>将当前转换重置为单位矩阵。然后运行 transform()。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-font" target="_blank" rel="external">font</a></td>
+<td>设置或返回文本内容的当前字体属性。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-textalign" target="_blank" rel="external">textAlign</a></td>
+<td>设置或返回文本内容的当前对齐方式。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-textbaseline" target="_blank" rel="external">textBaseline</a></td>
+<td>设置或返回在绘制文本时使用的当前文本基线。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-filltext" target="_blank" rel="external">fillText()</a></td>
+<td>在画布上绘制”被填充的”文本。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-stroketext" target="_blank" rel="external">strokeText()</a></td>
+<td>在画布上绘制文本（无填充）。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-measuretext" target="_blank" rel="external">measureText()</a></td>
+<td>返回包含指定文本宽度的对象。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="图像绘制"><a href="#图像绘制" class="headerlink" title="图像绘制"></a>图像绘制</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-drawimage" target="_blank" rel="external">drawImage()</a></td>
+<td>向画布上绘制图像、画布或视频。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="像素操作"><a href="#像素操作" class="headerlink" title="像素操作"></a>像素操作</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-imagedata-width" target="_blank" rel="external">width</a></td>
+<td>返回 ImageData 对象的宽度。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-imagedata-height" target="_blank" rel="external">height</a></td>
+<td></td>
+<td>返回 ImageData 对象的高度。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-imagedata-data" target="_blank" rel="external">data</a></td>
+<td>返回一个对象，其包含指定的 ImageData 对象的图像数据。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-createimagedata" target="_blank" rel="external">createImageData()</a></td>
+<td>创建新的、空白的 ImageData 对象。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-getimagedata" target="_blank" rel="external">getImageData()</a></td>
+<td>返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=met-canvas-putimagedata" target="_blank" rel="external">putImageData()</a></td>
+<td>把图像数据（从指定的 ImageData 对象）放回画布上。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-globalalpha" target="_blank" rel="external">globalAlpha</a></td>
+<td>设置或返回绘图的当前 alpha 或透明值。</td>
+</tr>
+<tr>
+<td><a href="http://techbrood.com/jsref?p=prop-canvas-globalcompositeoperation" target="_blank" rel="external">globalCompositeOperation</a></td>
+<td>设置或返回新图像如何绘制到已有的图像上。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>save()</td>
+<td>保存当前环境的状态。</td>
+</tr>
+<tr>
+<td>restore()</td>
+<td>返回之前保存过的路径状态和属性。</td>
+</tr>
+<tr>
+<td>createEvent()</td>
+<td></td>
+</tr>
+<tr>
+<td>getContext()</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>toDataURL()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">layout</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">canvas</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/11/10/wordpress-plugin-of-EasyFancyBox/" class="archive-article-date">
-  	<time datetime="2014-11-10T03:39:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/10/wordpress-plugin-of-EasyFancyBox/">wordpress 插件-Easy FancyBox</a>
-    </h1>
+  
+    <a href="/2018/08/09/js-spy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js爬虫处理办法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wordpress</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -257,8 +674,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

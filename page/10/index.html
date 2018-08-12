@@ -137,6 +137,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Swiper-learning-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/22/Swiper-learning-2/">Swiper学习之旅（2）-API(1)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/05/22/Swiper-learning-2/" class="archive-article-date">
+  	<time datetime="2015-05-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇文章讲了一些swiper的基本用法，今天来介绍一下常用的一些API</p>
+<h2 id="direction"><a href="#direction" class="headerlink" title="direction"></a>direction</h2><p>slide滑动方向，可设置<code>horizontal</code>(水平)或<code>vertical</code>(垂直),默认是水平</p>
+<h2 id="pagination"><a href="#pagination" class="headerlink" title="pagination"></a>pagination</h2><p>分页器容器的css选择器或HTML标签，这里需要配合html标签使用，在div中添加class标签：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"swiper-pagination"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>js中进行相应设置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pagination: <span class="string">'.swiper-pagination'</span></div></pre></td></tr></table></figure></p>
+<p>这样就可以出现分页的按钮<br>
+        
+          <a class="article-more-a" href="/2015/05/22/Swiper-learning-2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Swiper</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">mobile</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/05/22/Swiper-learning-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Swiper-learning-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -475,77 +551,6 @@
 
 
   
-    <article id="post-css-of-bfc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/16/css-of-bfc/">CSS之BFC</a>
-    </h1>
-  
-
-        
-        <a href="/2015/01/16/css-of-bfc/" class="archive-article-date">
-  	<time datetime="2015-01-16T07:00:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><span style="color: #ff0000;">什么是BFC</span>：</p>
-<p>BFC就是Block formatting contexts （块级格式化上下文）的简称。</p>
-<p><span style="color: #ff0000;">w3c规范中的BFC定义：</span></p>
-<p>浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为“visiable”的块级盒子，都会为他们的内容创建新的BFC（块级格式上下文）。</p>
-<p>在BFC中，盒子从顶端开始垂直地一个接一个地排列，两个盒子之间的垂直的间隙是由他们的margin 值所决定的。在一个BFC中，两个相邻的块级盒子的垂直外边距会产生折叠。</p>
-<p>在BFC中，每一个盒子的左外边缘（margin-left）会触碰到容器的左边缘(border-left)（对于从右到左的格式来说，则触碰到右边缘）。</p>
-<p><span style="color: #ff0000;">BFC的通俗理解：</span></p>
-<p>首先BFC是一个名词，是一个独立的布局环境，我们可以理解为一个箱子（实际上是看不见摸不着的），箱子里面物品的摆放是不受外界的影响的。转换为BFC的理解则是：BFC中的元素的布局是不受外界的影响（我们往往利用这个特性来消除浮动元素对其非浮动的兄弟元素和其子元素带来的影响。）并且在一个BFC中，块盒与行盒（行盒由一行中所有的内联元素所组成）都会垂直的沿着其父元素的边框排列。</p>
-        
-          <a class="article-more-a" href="/2015/01/16/css-of-bfc/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/01/16/css-of-bfc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
@@ -692,10 +697,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -704,7 +705,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,11 +737,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,10 +762,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -137,6 +137,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nodejs-learning-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/15/nodejs-learning-1/">node 学习之路（1）- 安装</a>
+    </h1>
+  
+
+        
+        <a href="/2014/09/15/nodejs-learning-1/" class="archive-article-date">
+  	<time datetime="2014-09-15T06:16:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、在官网<a href="http://nodejs.org/" title="nodejs org" target="_blank" rel="external">http://nodejs.org/</a>选择下载对应系统的安装文件后启动命令行npm，出现</p>
+<p>Error: ENOENT, stat ‘C:\Users\duti\AppData\Roaming\npm’错误，</p>
+<p>解决办法：在对应文字新建npm文件夹就行，这是最新版node在win7中的错误</p>
+<p>2、输入命令出现</p>
+<p>npm ERR! install Couldn’t read dependencies<br>npm ERR! package.json ENOENT, open ‘C:\Users\duti\Desktop\2048\package.json’<br>npm ERR! package.json This is most likely not a problem with npm itself.<br>npm ERR! package.json npm can’t find a package.json file in your current directory.</p>
+<p>npm ERR! System Windows_NT 6.1.7601<br>npm ERR! command “C:\nodejs\\node.exe” “C:\nodejs\node_modules\npm\bin\npm-cli.js” “install”<br>npm ERR! cwd C:\Users\duti\Desktop\2048<br>npm ERR! node -v v0.10.31<br>npm ERR! npm -v 1.4.23<br>npm ERR! path C:\Users\duti\Desktop\2048\package.json<br>npm ERR! code ENOPACKAGEJSON<br>npm ERR! errno 34<br>npm ERR!<br>npm ERR! Additional logging details can be found in:<br>npm ERR! C:\Users\duti\Desktop\2048\npm-debug.log<br>npm ERR! not ok code 0</p>
+<p>这是因为缺少package.json文件，这时候只要在项目根目录新建一个package.json文件，文件中包含安装的module和版本就行了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/09/15/nodejs-learning-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-angularJS-learning-materials" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -573,103 +645,6 @@ a[title]
 
 
   
-    <article id="post-css-selector-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/07/css-selector-1/">css学习之css选择器（1）</a>
-    </h1>
-  
-
-        
-        <a href="/2014/07/07/css-selector-1/" class="archive-article-date">
-  	<time datetime="2014-07-07T15:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、CSS-element-gt-element-Selector"><a href="#1、CSS-element-gt-element-Selector" class="headerlink" title="1、CSS element&gt;element Selector"></a><span style="color: #ff0000;">1、CSS element&gt;element Selector</span></h2><p>版本：css2</p>
-<p>用法：选取当前父元素的直接子元素</p>
-<p>支持版本：</p>
-<p>pc：ie7+、all chrome versions、all firefox versions、all safair versions、all opera versions</p>
-<p>mobile：all ios safair versions、all opera mini versions、all Android Browser versions</p>
-<p>eg：</p>
-<pre class="lang:xhtml decode:true" title="CSS element&gt;element Selector">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset="utf-8"&gt;
-  &lt;title&gt;CSS element&gt;element Selector&lt;/title&gt;
-&lt;style id="jsbin-css"&gt;
-div&gt;p
-{
-background-color:yellow;
-}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;h1&gt;Welcome to My Homepage&lt;/h1&gt;
-&lt;div&gt;
-  &lt;h2&gt;My name is Donald&lt;/h2&gt;
-  &lt;p&gt;yellow1&lt;/p&gt;
-  &lt;p&gt;yellow2&lt;/p&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;span&gt;&lt;p&gt;I will not be styled.&lt;/p&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;p&gt;My best friend is Mickey.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre>
-
-<p>预览地址：<a href="http://jsbin.com/yacoba/1" title="element&gt;element">http://jsbin.com/yacoba/1</a></p>
-<h2 id="2、CSS-element-element-Selector"><a href="#2、CSS-element-element-Selector" class="headerlink" title=" 2、CSS element+element Selector"></a>
-        
-          <a class="article-more-a" href="/2014/07/07/css-selector-1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/07/07/css-selector-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
@@ -816,10 +791,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -828,7 +799,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,11 +831,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,10 +856,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -137,6 +137,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-set-and-map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/23/es6-set-and-map/">ES6学习笔记之Set &amp;&amp; Map</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/23/es6-set-and-map/" class="archive-article-date">
+  	<time datetime="2016-04-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Set和Map数据结构"><a href="#Set和Map数据结构" class="headerlink" title="Set和Map数据结构"></a>Set和Map数据结构</h1><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>ES6</code>提供了新的数据结构<code>Set</code>。它类似于数组，但是成员的值都是唯一的，没有重复的值。<code>Set</code>本身是一个构造函数，用来生成<code>Set</code>数据结构。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].map(<span class="function"><span class="params">x</span> =&gt;</span> s.add(x));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2 3 5 4</span></div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/04/23/es6-set-and-map/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/23/es6-set-and-map/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6-proxy-and-reflect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -499,78 +568,6 @@
 
 
   
-    <article id="post-ubuntu-shadowsocks" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/12/ubuntu-shadowsocks/">linux下shadowsocks配合SwitchyOmega科学上网</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/12/ubuntu-shadowsocks/" class="archive-article-date">
-  	<time datetime="2016-03-12T06:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="shadowsocks客户端的基本使用"><a href="#shadowsocks客户端的基本使用" class="headerlink" title="shadowsocks客户端的基本使用"></a>shadowsocks客户端的基本使用</h1><p>下载客户端，各平台的客户端都有，windows,linux,mac,android,ios。<br><a href="https://shadowsocks.org">shadowsocks下载地址</a>访问不了的可以访问<a href="http://www.ishadowsocks.com/">这个地址</a><br>windows，mac，Android以及iPhone的使用都很简单，下面主要说的是Linux上面shadowsocks的使用问题。<br>首先我们下载linux下的客户端，这里推荐下载<a href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/Installation">shadowsocks-qt5</a>因为是图形界面，使用方便。下载完后,我们可以在file&gt;import中引入自己已经配置好的json文件,界面如下:<br><img src="http://dsklab-dsklab.stor.sinaapp.com/shadowsocks-qt5.png" alt="shadowsocks-qt5" title="shadowsocks-qt5"><br>
-        
-          <a class="article-more-a" href="/2016/03/12/ubuntu-shadowsocks/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">shadowsocks</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/12/ubuntu-shadowsocks/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -717,10 +714,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -729,7 +722,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,11 +754,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,10 +779,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

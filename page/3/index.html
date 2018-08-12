@@ -137,6 +137,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/15/es6-generator/">ES6学习笔记之Generator 函数</a>
+    </h1>
+  
+
+        
+        <a href="/2016/05/15/es6-generator/" class="archive-article-date">
+  	<time datetime="2016-05-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><code>Generator</code>函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p>
+<p><code>Generator</code>函数有多种理解角度。从语法上，首先可以把它理解成，<code>Generator</code> 函数是一个状态机，封装了多个内部状态。</p>
+<p>执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。</p>
+<p>形式上，Generator函数是一个普通函数，但是有两个特征。一是，<code>function</code>关键字与函数名之间有一个星号；二是，函数体内部使用<code>yield</code>语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">helloWorldGenerator</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">yield</span> <span class="string">'hello'</span>;</div><div class="line">  <span class="keyword">yield</span> <span class="string">'world'</span>;</div><div class="line">  <span class="keyword">return</span> <span class="string">'ending'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> hw = helloWorldGenerator();</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/05/15/es6-generator/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/05/15/es6-generator/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6-iterator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -558,75 +630,6 @@
 
 
   
-    <article id="post-es6-set-and-map" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/23/es6-set-and-map/">ES6学习笔记之Set &amp;&amp; Map</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/23/es6-set-and-map/" class="archive-article-date">
-  	<time datetime="2016-04-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Set和Map数据结构"><a href="#Set和Map数据结构" class="headerlink" title="Set和Map数据结构"></a>Set和Map数据结构</h1><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>ES6</code>提供了新的数据结构<code>Set</code>。它类似于数组，但是成员的值都是唯一的，没有重复的值。<code>Set</code>本身是一个构造函数，用来生成<code>Set</code>数据结构。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"></div><div class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>].map(<span class="function"><span class="params">x</span> =&gt;</span> s.add(x));</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> s) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 2 3 5 4</span></div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/04/23/es6-set-and-map/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/04/23/es6-set-and-map/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -773,10 +776,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -785,7 +784,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,11 +816,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,10 +841,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

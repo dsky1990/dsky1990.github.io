@@ -137,6 +137,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jqueryvalidation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/17/jqueryvalidation/">jqueryvalidation学习总结</a>
+    </h1>
+  
+
+        
+        <a href="/2015/10/17/jqueryvalidation/" class="archive-article-date">
+  	<time datetime="2015-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近一段时间忙着项目，没怎么更新博客，现在抽空总结下项目中用到的插件和碰到的问题，先说说<a href="http://jqueryvalse">jqueryvalidation</a></p>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><blockquote>
+<p>是否开启danebug模式，如果开启的话，那么表单不会提交，只进行检查，然后某些错误将会打印在控制台上面</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".selector"</span>).validate(&#123;</div><div class="line">  <span class="attr">debug</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2015/10/17/jqueryvalidation/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jqueryvalidation</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">validate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/10/17/jqueryvalidation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-using-angular-to-make-2048-game" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -488,75 +568,6 @@
 
 
   
-    <article id="post-angularJS-learning-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/08/angularJS-learning-5/">Angularjs学习(5)之指令</a>
-    </h1>
-  
-
-        
-        <a href="/2015/08/08/angularJS-learning-5/" class="archive-article-date">
-  	<time datetime="2015-08-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="自定义-HTML-元素和属性"><a href="#自定义-HTML-元素和属性" class="headerlink" title="自定义 HTML 元素和属性"></a>自定义 HTML 元素和属性</h2><p>基于我们对HTML元素的理解，指令本质上就是AngularJS扩展具有自定义功能的HTML元素的途径。<br>接下来让我们来创建一个自定义指令：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-directive</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>对应js代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">		<span class="attr">template</span>: <span class="string">'&lt;a href="http://google.com"&gt;Click me to go to Google&lt;/a&gt;'</span></div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2015/08/08/angularJS-learning-5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/08/08/angularJS-learning-5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -703,10 +714,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -715,7 +722,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,11 +754,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,10 +779,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

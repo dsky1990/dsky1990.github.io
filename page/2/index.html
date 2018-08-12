@@ -137,6 +137,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-input-preventDefault" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/11/input-preventDefault/">preventDefault事件对input type为checkbox或radio时的click影响</a>
+    </h1>
+  
+
+        
+        <a href="/2016/06/11/input-preventDefault/" class="archive-article-date">
+  	<time datetime="2016-06-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做项目的时候发现了一个问题，在<code>document</code>上绑定<code>clcik</code>事件后，<code>input type</code>为<code>checkbox</code>或<code>radio</code>的状态不会改变，但是绑定的事件会执行，Demo如下：</p>
+<p><a class="jsbin-embed" href="http://jsbin.com/megiva/1/embed?html,js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.39.11"></script></p>
+<p>可以看到，在执行完<code>$(this).attr(&#39;checked&#39;,true);</code>后到<code>alert</code>时，<code>checkbox</code>的状态是选中的，而且弹出的状态也是<code>checked</code>，也就是说，这个时候，<code>checkbox</code>是选中的。但是为什么我们在点击确定之后，<code>checkbox</code>又变回了未选中了呢？在相应事件结束之后，一定还有什么东西让它改回去了？其实，这是<code>checkbox</code>的默认<code>click</code>事件的做的。也许大家会问，我不是通过<code>e.preventDefault()</code>把默认事件去掉了吗？为什么还有默认事件？难道<code>e.preventDefault()</code>没有生效？</p>
+        
+          <a class="article-more-a" href="/2016/06/11/input-preventDefault/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/06/11/input-preventDefault/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-javascript-closure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -509,78 +579,6 @@
 
 
   
-    <article id="post-es6-generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/15/es6-generator/">ES6学习笔记之Generator 函数</a>
-    </h1>
-  
-
-        
-        <a href="/2016/05/15/es6-generator/" class="archive-article-date">
-  	<time datetime="2016-05-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Generator-函数"><a href="#Generator-函数" class="headerlink" title="Generator 函数"></a>Generator 函数</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><code>Generator</code>函数是ES6提供的一种异步编程解决方案，语法行为与传统函数完全不同。</p>
-<p><code>Generator</code>函数有多种理解角度。从语法上，首先可以把它理解成，<code>Generator</code> 函数是一个状态机，封装了多个内部状态。</p>
-<p>执行Generator函数会返回一个遍历器对象，也就是说，Generator函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历Generator函数内部的每一个状态。</p>
-<p>形式上，Generator函数是一个普通函数，但是有两个特征。一是，<code>function</code>关键字与函数名之间有一个星号；二是，函数体内部使用<code>yield</code>语句，定义不同的内部状态（yield语句在英语里的意思就是“产出”）。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>* <span class="title">helloWorldGenerator</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">yield</span> <span class="string">'hello'</span>;</div><div class="line">  <span class="keyword">yield</span> <span class="string">'world'</span>;</div><div class="line">  <span class="keyword">return</span> <span class="string">'ending'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> hw = helloWorldGenerator();</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/05/15/es6-generator/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/05/15/es6-generator/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -727,10 +725,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -739,7 +733,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,11 +765,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,10 +790,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

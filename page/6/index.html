@@ -137,6 +137,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6-let-and-const" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/31/es6-let-and-const/">ES6学习笔记之let &amp;&amp; const</a>
+    </h1>
+  
+
+        
+        <a href="/2016/01/31/es6-let-and-const/" class="archive-article-date">
+  	<time datetime="2016-01-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ES6新增了let和const命令，用来声明变量。</p>
+<h2 id="let命令"><a href="#let命令" class="headerlink" title="let命令"></a>let命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>let</code>的用法类似于<code>var</code>，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">6</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">//6</span></div></pre></td></tr></table></figure></p>
+<p>上面代码在代码块之中，分别用<code>let</code>和<code>var</code>声明了两个变量。然后在代码块之外调用这两个变量，结果<code>let</code>声明的变量<code>undefined</code>，<code>var</code>声明的变量返回了正确的值。这表明，<code>let</code>声明的变量只在它所在的代码块有效。</p>
+        
+          <a class="article-more-a" href="/2016/01/31/es6-let-and-const/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/01/31/es6-let-and-const/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -258,11 +328,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">css3</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -513,86 +583,6 @@
 
 
   
-    <article id="post-jqueryvalidation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/17/jqueryvalidation/">jqueryvalidation学习总结</a>
-    </h1>
-  
-
-        
-        <a href="/2015/10/17/jqueryvalidation/" class="archive-article-date">
-  	<time datetime="2015-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近一段时间忙着项目，没怎么更新博客，现在抽空总结下项目中用到的插件和碰到的问题，先说说<a href="http://jqueryvalse">jqueryvalidation</a></p>
-<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><blockquote>
-<p>是否开启danebug模式，如果开启的话，那么表单不会提交，只进行检查，然后某些错误将会打印在控制台上面</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".selector"</span>).validate(&#123;</div><div class="line">  <span class="attr">debug</span>: <span class="literal">true</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2015/10/17/jqueryvalidation/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jqueryvalidation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">validate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/10/17/jqueryvalidation/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
@@ -739,10 +729,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -751,7 +737,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -771,11 +769,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,10 +794,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

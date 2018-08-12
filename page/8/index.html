@@ -137,6 +137,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-angularJS-learning-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/08/angularJS-learning-5/">Angularjs学习(5)之指令</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/08/angularJS-learning-5/" class="archive-article-date">
+  	<time datetime="2015-08-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义-HTML-元素和属性"><a href="#自定义-HTML-元素和属性" class="headerlink" title="自定义 HTML 元素和属性"></a>自定义 HTML 元素和属性</h2><p>基于我们对HTML元素的理解，指令本质上就是AngularJS扩展具有自定义功能的HTML元素的途径。<br>接下来让我们来创建一个自定义指令：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-directive</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>对应js代码如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>,[]).directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">		<span class="attr">template</span>: <span class="string">'&lt;a href="http://google.com"&gt;Click me to go to Google&lt;/a&gt;'</span></div><div class="line">	&#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/08/08/angularJS-learning-5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/08/angularJS-learning-5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-angularJS-learning-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -505,120 +574,6 @@
 
 
   
-    <article id="post-html5-dnd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/25/html5-dnd/">html5学习之拖拽与拖放</a>
-    </h1>
-  
-
-        
-        <a href="/2015/06/25/html5-dnd/" class="archive-article-date">
-  	<time datetime="2015-06-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以前实现元素的拖拽需要使用javascript大段代码实现，又是记录初始位置，又是记录位移等等很麻烦，现在<code>HTML5</code>提供了专门的拖拽与拖放的<code>API</code>，先说说相关<code>API</code></p>
-<table>
-<thead>
-<tr>
-<th>事件</th>
-<th>产生的源对象</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>drag</td>
-<td>被拖动的元素</td>
-<td>这个事件在拖拽源触发。即在拖拽操作中触发<code>dragstart</code>事件的元素。</td>
-</tr>
-<tr>
-<td>drop</td>
-<td>拖放的目标元素</td>
-<td>这个事件在拖拽操作结束释放时于释放元素上触发。一个监听器用来响应接收被拖拽的数据并插入到释放之地。这个事件只有在需要时才触发。当用户取消了拖拽操作时将不触发，例如按下了<code>Escape（ESC）</code>按键，或鼠标在非可释放目标上释放了按键。</td>
-</tr>
-<tr>
-<td>dragstart</td>
-<td>被拖动的元素</td>
-<td>当一个元素开始被拖拽的时候触发。用户拖拽的元素需要附加<code>dragstart</code>事件。在这个事件中，监听器将设置与这次拖拽相关的信息，例如拖动的数据和图像。</td>
-</tr>
-<tr>
-<td>dragenter</td>
-<td>拖动过程中鼠标经过的元素</td>
-<td>当拖拽中的鼠标第一次进入一个元素的时候触发。这个事件的监听器需要指明是否允许在这个区域释放鼠标。如果没有设置监听器，或者监听器没有进行操作，则默认不允许释放。当你想要通过类似高亮或插入标记等方式来告知用户此处可以释放，你将需要监听这个事件。</td>
-</tr>
-<tr>
-<td>dragleave</td>
-<td>拖动过程中鼠标经过的元素</td>
-<td>当拖拽中的鼠标离开元素时触发。监听器需要将作为可释放反馈的高亮或插入标记去除。</td>
-</tr>
-<tr>
-<td>dragend</td>
-<td>拖动的对象元素</td>
-<td>拖拽源在拖拽操作结束将得到<code>dragend</code>事件对象，不管操作成功与否。</td>
-</tr>
-<tr>
-<td>dragover</td>
-<td>拖动过程中鼠标经过的元素</td>
-<td>当拖拽中的鼠标移动经过一个元素的时候触发。大多数时候，监听过程发生的操作与<code>dragenter</code>事件是一样的。</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2015/06/25/html5-dnd/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">html5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/06/25/html5-dnd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -765,10 +720,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -777,7 +728,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,11 +760,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,10 +785,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">

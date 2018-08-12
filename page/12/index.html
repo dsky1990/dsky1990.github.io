@@ -137,6 +137,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-5-tips-for-more-efficient-jquery-selectors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/26/5-tips-for-more-efficient-jquery-selectors/">5 Tips for More Efficient jQuery Selectors</a>
+    </h1>
+  
+
+        
+        <a href="/2014/12/26/5-tips-for-more-efficient-jquery-selectors/" class="archive-article-date">
+  	<time datetime="2014-12-26T04:12:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Use-an-ID-if-Possible"><a href="#1-Use-an-ID-if-Possible" class="headerlink" title="1. Use an ID if Possible"></a>1. Use an ID if Possible</h2><p>HTML ID attributes are unique in every page and even older browsers can locate a single element very quickly:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#myelement"</span>);</div></pre></td></tr></table></figure>
+<h2 id="2-Avoid-Selecting-by-Class-Only"><a href="#2-Avoid-Selecting-by-Class-Only" class="headerlink" title="2. Avoid Selecting by Class Only"></a>2. Avoid Selecting by Class Only</h2><p>  The following class selector will run quickly in modern browsers:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".myclass"</span>);</div></pre></td></tr></table></figure></p>
+<p>  Unfortunately, in older browser such as IE6/7 and Firefox 2, jQuery must examine every element on the page to determine whether “myclass” has been applied.</p>
+<p>  The selector will be more efficient if we qualify it with a tag name, e.g.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div.myclass"</span>);</div></pre></td></tr></table></figure>
+<p>  jQuery can now restrict the search to DIV elements only.</p>
+        
+          <a class="article-more-a" href="/2014/12/26/5-tips-for-more-efficient-jquery-selectors/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/12/26/5-tips-for-more-efficient-jquery-selectors/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-Several-kinds-of-layout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -509,78 +583,6 @@ html,body{margin:0; padding: 0;}
 
 
   
-    <article id="post-nodejs-learning-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/15/nodejs-learning-1/">node 学习之路（1）- 安装</a>
-    </h1>
-  
-
-        
-        <a href="/2014/09/15/nodejs-learning-1/" class="archive-article-date">
-  	<time datetime="2014-09-15T06:16:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1、在官网<a href="http://nodejs.org/" title="nodejs org" target="_blank" rel="external">http://nodejs.org/</a>选择下载对应系统的安装文件后启动命令行npm，出现</p>
-<p>Error: ENOENT, stat ‘C:\Users\duti\AppData\Roaming\npm’错误，</p>
-<p>解决办法：在对应文字新建npm文件夹就行，这是最新版node在win7中的错误</p>
-<p>2、输入命令出现</p>
-<p>npm ERR! install Couldn’t read dependencies<br>npm ERR! package.json ENOENT, open ‘C:\Users\duti\Desktop\2048\package.json’<br>npm ERR! package.json This is most likely not a problem with npm itself.<br>npm ERR! package.json npm can’t find a package.json file in your current directory.</p>
-<p>npm ERR! System Windows_NT 6.1.7601<br>npm ERR! command “C:\nodejs\\node.exe” “C:\nodejs\node_modules\npm\bin\npm-cli.js” “install”<br>npm ERR! cwd C:\Users\duti\Desktop\2048<br>npm ERR! node -v v0.10.31<br>npm ERR! npm -v 1.4.23<br>npm ERR! path C:\Users\duti\Desktop\2048\package.json<br>npm ERR! code ENOPACKAGEJSON<br>npm ERR! errno 34<br>npm ERR!<br>npm ERR! Additional logging details can be found in:<br>npm ERR! C:\Users\duti\Desktop\2048\npm-debug.log<br>npm ERR! not ok code 0</p>
-<p>这是因为缺少package.json文件，这时候只要在项目根目录新建一个package.json文件，文件中包含安装的module和版本就行了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/09/15/nodejs-learning-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
@@ -727,10 +729,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Swiper</a>
               </li>
              
@@ -739,7 +737,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">canvas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,11 +769,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">animation</a>
+                <a href="javascript:void(0)" class="js-tag color5">transform</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transform</a>
+                <a href="javascript:void(0)" class="js-tag color5">animation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,10 +794,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gitLab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">html5</a>
               </li>
              
               <li class="article-tag-list-item">
